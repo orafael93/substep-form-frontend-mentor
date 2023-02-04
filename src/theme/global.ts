@@ -5,10 +5,7 @@ import {
     GlobalStyleComponent,
 } from 'styled-components'
 
-const GlobalStyles: GlobalStyleComponent<
-    {},
-    DefaultTheme
-> = createGlobalStyle`
+const GlobalStyles: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
     * {
     margin: 0;
     padding: 0;
