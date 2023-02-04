@@ -15,5 +15,10 @@ declare module 'styled-components' {
         skyBlue: string
         veryLightGrey: string
         white: string
+        breakpoints: {
+            mobile: number
+            tablet: number
+            desktop: number
+        }
     }
 }
