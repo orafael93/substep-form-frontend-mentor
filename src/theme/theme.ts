@@ -14,6 +14,11 @@ const theme: DefaultTheme = {
     skyBlue: '#BEE2FD',
     veryLightGrey: '#F8F9FF',
     white: '#FFF',
+    breakpoints: {
+        mobile: 480,
+        tablet: 768,
+        desktop: 1025,
+    },
 } as const
 
 export default theme
