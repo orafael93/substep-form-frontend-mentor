@@ -11,7 +11,7 @@ export const GlobalWrapper = styled.div`
         padding: 12rem 10px;
 
         @media (max-width: ${theme.breakpoints.tablet}px) {
-            padding: 10px;
+            padding: 0;
             align-items: flex-start;
         }
     `}
@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
         position: relative;
 
         display: grid;
-        grid-template-columns: 17.5rem 1fr;
+        grid-template-columns: minmax(15rem, 17.5rem) 1fr;
 
         background: ${theme.white};
         padding: 10px;
@@ -30,28 +30,28 @@ export const Wrapper = styled.div`
         box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
 
         width: 100%;
-        max-width: 75.5rem;
+        max-width: 60rem;
 
         @media (max-width: ${theme.breakpoints.tablet}px) {
             align-content: flex-start;
             grid-template-columns: 1fr;
             padding: 0;
             background: ${theme.bg};
+            height: 100%;
         }
     `}
 `
 
 export const WrapperContent = styled.div`
     ${({ theme }) => css`
-        padding: 55px 100px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        padding: 30px 0;
 
         @media (max-width: ${theme.breakpoints.tablet}px) {
-            position: absolute;
-            top: 100px;
-            left: 0;
-            right: 0;
-
-            width: 90%;
+            transform: translateY(-50px);
             height: fit-content;
 
             padding: 15px;
@@ -61,18 +61,50 @@ export const WrapperContent = styled.div`
 
             border-radius: 10px;
         }
+
+        @media (max-width: ${theme.breakpoints.mobile}px) {
+            width: 90%;
+        }
     `}
 `
 
 export const WrapperNextStepMobile = styled.div`
     ${({ theme }) => css`
         position: absolute;
-        bottom: 25px;
-        right: 30px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        padding: 20px 60px;
+
+        display: flex;
+        justify-content: space-between;
+
+        background: ${theme.white};
 
         @media (min-width: ${theme.breakpoints.tablet}px) {
             display: none;
         }
+
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            padding: 20px 20px;
+        }
+    `}
+`
+
+export const BackButton = styled.button`
+    ${({ theme }) => css`
+        background: transparent;
+
+        border: none;
+
+        color: ${theme.grey};
+
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Ubuntu';
+
+        cursor: pointer;
     `}
 `
 

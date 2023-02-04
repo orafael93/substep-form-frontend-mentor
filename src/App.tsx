@@ -3,10 +3,11 @@ import {
     Wrapper,
     WrapperContent,
     WrapperNextStepMobile,
+    BackButton,
     Button,
 } from './components/GlobalWrapper'
 import Sidebar from './components/Sidebar'
-import Step1 from './components/Step1'
+import Step2 from './components/Step2'
 
 function App() {
     return (
@@ -14,12 +15,13 @@ function App() {
             <Wrapper>
                 <Sidebar />
                 <WrapperContent>
-                    <Step1 />
+                    <Step2 />
                 </WrapperContent>
+                <WrapperNextStepMobile>
+                    <BackButton>Go Back</BackButton>
+                    <Button>Next Step</Button>
+                </WrapperNextStepMobile>
             </Wrapper>
-            <WrapperNextStepMobile>
-                <Button>Next Step</Button>
-            </WrapperNextStepMobile>
         </GlobalWrapper>
     )
 }
