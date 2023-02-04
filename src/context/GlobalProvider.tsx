@@ -6,9 +6,7 @@ type GlobalProviderTypes = {
     children: ReactNode
 }
 
-export const GlobalProvider = ({
-    children,
-}: GlobalProviderTypes) => {
+export const GlobalProvider = ({ children }: GlobalProviderTypes) => {
     const value = {}
 
     return (
