@@ -10,13 +10,27 @@ export const Wrapper = styled.div`
         height: 100%;
 
         border-radius: 10px;
-        padding: 2rem;
+        padding: 40px 32px;
 
-        background: ${theme.purple};
+        background-color: ${theme.purple};
         background-image: url('bg-sidebar-desktop.svg');
         background-repeat: no-repeat;
         background-position-y: bottom;
         background-size: contain;
+
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            flex-direction: row;
+            justify-content: center;
+
+            height: fit-content;
+
+            background: ${theme.purple};
+            background-image: url('bg-sidebar-mobile.svg');
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            padding: 2rem 2rem 6rem;
+        }
     `}
 `
 
@@ -63,11 +77,17 @@ export const Number = styled.div`
 `
 
 export const StepContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    ${({ theme }) => css`
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
 
-    text-transform: uppercase;
+        text-transform: uppercase;
+
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            display: none;
+        }
+    `}
 `
 
 export const StepName = styled.p`
