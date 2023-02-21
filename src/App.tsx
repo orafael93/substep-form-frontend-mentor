@@ -7,7 +7,8 @@ import {
     Button,
 } from './components/GlobalWrapper'
 import Sidebar from './components/Sidebar'
-import Step2 from './components/Step2'
+
+import Step3 from './components/Step3'
 
 function App() {
     return (
@@ -15,7 +16,7 @@ function App() {
             <Wrapper>
                 <Sidebar />
                 <WrapperContent>
-                    <Step2 />
+                    <Step3 />
                 </WrapperContent>
                 <WrapperNextStepMobile>
                     <BackButton>Go Back</BackButton>
