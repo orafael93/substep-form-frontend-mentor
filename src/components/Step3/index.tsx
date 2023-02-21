@@ -1,9 +1,25 @@
-import React from 'react'
+import AddonsCard from '../AddonsCard'
 
 import * as S from './styles'
 
 const Step3 = () => {
-    return <S.Wrapper>Step3</S.Wrapper>
+    return (
+        <S.Wrapper>
+            <S.StepTitle>Pick add-ons</S.StepTitle>
+            <S.StepDescription>
+                Add-ons help enhance your gaming experience
+            </S.StepDescription>
+            <S.WrapperAddonsCards>
+                <AddonsCard />
+                <AddonsCard />
+                <AddonsCard />
+            </S.WrapperAddonsCards>
+            <S.WrapperButtons>
+                <S.BackButton>Go Back</S.BackButton>
+                <S.Button>Next Step</S.Button>
+            </S.WrapperButtons>
+        </S.Wrapper>
+    )
 }
 
 export default Step3
