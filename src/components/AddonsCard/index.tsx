@@ -1,8 +1,14 @@
 import { MouseEvent, useState } from 'react'
 
+import { AddonsCardPropTypes } from '../Step1/types'
+
 import * as S from './styles'
 
-const AddonsCard = () => {
+const AddonsCard = ({
+    serviceName,
+    serviceDescription,
+    servicePrice,
+}: AddonsCardPropTypes) => {
     const [checked, setChecked] = useState(false)
 
     const handleCheck = (e: MouseEvent) => {
@@ -14,13 +20,13 @@ const AddonsCard = () => {
         <S.Wrapper onClick={handleCheck} addonIsChecked={checked}>
             <S.CheckboxInput type="checkbox" checked={checked} />
             <S.WrapperService>
-                <S.ServiceName>Online service</S.ServiceName>
+                <S.ServiceName>{serviceName}</S.ServiceName>
                 <S.ServiceDescription>
-                    Access to multiplayer games
+                    {serviceDescription}
                 </S.ServiceDescription>
             </S.WrapperService>
             <S.WrapperPrice>
-                <S.Price>+$1/mo</S.Price>
+                <S.Price>+${servicePrice}/mo</S.Price>
             </S.WrapperPrice>
         </S.Wrapper>
     )
