@@ -9,15 +9,19 @@ const Step1 = () => {
             </S.StepDescription>
             <S.WrapperInput>
                 <S.Label htmlFor="name">Name</S.Label>
-                <S.Input id="name" />
+                <S.Input id="name" placeholder="e.g Stephen King" />
             </S.WrapperInput>
             <S.WrapperInput>
                 <S.Label htmlFor="name">Email Address</S.Label>
-                <S.Input type="email" id="name" />
+                <S.Input
+                    type="email"
+                    id="name"
+                    placeholder="e.g stephenking@lorem.com"
+                />
             </S.WrapperInput>
             <S.WrapperInput>
                 <S.Label htmlFor="name">Phone number</S.Label>
-                <S.Input id="name" />
+                <S.Input id="name" placeholder="e.g +1 234 567 890" />
             </S.WrapperInput>
             <S.WrapperNextStep>
                 <S.Button>Next Step</S.Button>
