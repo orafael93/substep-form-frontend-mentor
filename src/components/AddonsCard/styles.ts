@@ -13,7 +13,7 @@ export const Wrapper = styled.label<WrapperPropTypes>`
         padding: 16px 20px;
         border-radius: 8px;
 
-        border: 1px solid ${theme.purple};
+        border: 1px solid ${addonIsChecked ? theme.purple : theme.borderColor};
 
         cursor: pointer;
 
@@ -43,7 +43,10 @@ export const ServiceDescription = styled.p`
     `}
 `
 
-export const WrapperPrice = styled.div``
+export const WrapperPrice = styled.div`
+    flex: 1;
+    text-align: right;
+`
 
 export const Price = styled.p`
     ${({ theme }) => css`
