@@ -26,7 +26,7 @@ export const StepDescription = styled.p`
 export const WrapperSelectedContent = styled.div`
     ${({ theme }) => css`
         background: ${theme.veryLightGrey};
-        padding: 10px 20px;
+        padding: 20px;
         margin-top: 20px;
         border-radius: 5px;
     `}
@@ -53,11 +53,22 @@ export const Name = styled.p`
 export const Price = styled.span`
     ${({ theme }) => css`
         display: inline-block;
+
         font-weight: 400;
-        color: ${theme.grey};
         font-size: 14px;
+
+        color: ${theme.grey};
+
         text-decoration: underline;
+
         margin-top: 8px;
+        cursor: pointer;
+
+        transition: 0.1s;
+
+        &:hover {
+            color: ${theme.purple};
+        }
     `}
 `
 
@@ -68,5 +79,104 @@ export const SelectedPrice = styled.span`
         font-weight: bold;
         font-size: 16px;
         color: ${theme.denim};
+    `}
+`
+
+export const WrapperAddons = styled.div`
+    margin-top: 16px;
+`
+
+export const WrapperAddon = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    margin: 16px 0;
+`
+
+export const AddonNameService = styled.p`
+    ${({ theme }) => css`
+        color: ${theme.grey};
+        font-weight: 400;
+        font-size: 14px;
+    `}
+`
+
+export const AddonPrice = styled.p`
+    ${({ theme }) => css`
+        font-size: 14px;
+        font-weight: 400;
+        color: ${theme.denim};
+    `}
+`
+
+export const WrapperTotalPrice = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 26px;
+
+    padding: 0 20px;
+`
+
+export const PriceText = styled.p`
+    ${({ theme }) => css`
+        font-weight: 400;
+        font-size: 14px;
+        color: ${theme.grey};
+    `}
+`
+
+export const PriceValue = styled.p`
+    ${({ theme }) => css`
+        color: ${theme.purple};
+        font-weight: bold;
+        font-size: 20px;
+    `}
+`
+
+export const WrapperButtons = styled.div`
+    ${({ theme }) => css`
+        display: none;
+
+        @media (min-width: ${theme.breakpoints.tablet}px) {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 100px;
+        }
+    `}
+`
+
+export const BackButton = styled.button`
+    ${({ theme }) => css`
+        background: transparent;
+
+        border: none;
+
+        color: ${theme.grey};
+
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Ubuntu';
+
+        cursor: pointer;
+    `}
+`
+
+export const Button = styled.div`
+    ${({ theme }) => css`
+        background: ${theme.purple};
+
+        padding: 15px 25px;
+
+        color: ${theme.white};
+        border-radius: 8px;
+
+        transition: 0.2s;
+
+        &:hover {
+            background: #164a8a;
+            cursor: pointer;
+        }
     `}
 `
