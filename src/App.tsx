@@ -1,3 +1,4 @@
+import FinishedForm from './components/FinishedForm'
 import {
     GlobalWrapper,
     Wrapper,
@@ -16,7 +17,7 @@ function App() {
             <Wrapper>
                 <Sidebar />
                 <WrapperContent>
-                    <Step4 />
+                    <FinishedForm />
                 </WrapperContent>
                 <WrapperNextStepMobile>
                     <BackButton>Go Back</BackButton>
