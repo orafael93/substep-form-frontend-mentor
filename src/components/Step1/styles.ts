@@ -48,6 +48,10 @@ export const Input = styled.input`
         &:active {
             border-color: ${theme.borderColor};
         }
+
+        &::placeholder {
+            color: ${theme.grey};
+        }
     `}
 `
 
