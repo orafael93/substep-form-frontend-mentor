@@ -4,9 +4,9 @@ export const GlobalWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
         justify-content: center;
+        align-items: center;
 
-        width: 100vw;
-        height: 100vh;
+        height: 100%;
         padding: 12rem 10px;
 
         @media (max-width: ${theme.breakpoints.tablet}px) {
@@ -22,6 +22,8 @@ export const Wrapper = styled.div`
 
         display: grid;
         grid-template-columns: minmax(15rem, 17.5rem) 1fr;
+
+        gap: 20px;
 
         background: ${theme.white};
         padding: 10px;
