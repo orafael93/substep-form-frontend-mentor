@@ -18,7 +18,7 @@ const AddonsCard = ({
 
     return (
         <S.Wrapper onClick={handleCheck} addonIsChecked={checked}>
-            <S.CheckboxInput type="checkbox" checked={checked} />
+            <S.CheckboxInput type="checkbox" checked={checked} readOnly />
             <S.WrapperService>
                 <S.ServiceName>{serviceName}</S.ServiceName>
                 <S.ServiceDescription>
