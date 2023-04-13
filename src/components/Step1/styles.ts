@@ -5,6 +5,7 @@ export const Wrapper = styled.div``
 export const WrapperInput = styled.div`
     display: flex;
     flex-direction: column;
+
     margin-bottom: 24px;
 `
 
@@ -34,8 +35,12 @@ export const Label = styled.label`
     `}
 `
 
-export const Input = styled.input`
-    ${({ theme }) => css`
+type InputPropTypes = {
+    error: boolean
+}
+
+export const Input = styled.input<InputPropTypes>`
+    ${({ theme, error }) => css`
         padding: 15px;
         background: ${theme.white};
         border: 1px solid ${theme.borderColor};
@@ -44,10 +49,16 @@ export const Input = styled.input`
         font-size: 1rem;
         font-weight: 500;
         font-family: 'Ubuntu';
+        outline: none;
 
-        &:active {
-            border-color: ${theme.borderColor};
+        &:focus {
+            border-color: ${error ? theme.redErrors : theme.purple};
         }
+
+        ${error &&
+        css`
+            border-color: ${theme.redErrors};
+        `}
 
         &::placeholder {
             color: ${theme.grey};
@@ -84,4 +95,17 @@ export const Button = styled.div`
             cursor: pointer;
         }
     `}
+`
+
+export const RequiredFieldText = styled.p`
+    ${({ theme }) => css`
+        color: ${theme.redErrors};
+        font-size: 14px;
+    `}
+`
+
+export const WrapperLabelField = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `
