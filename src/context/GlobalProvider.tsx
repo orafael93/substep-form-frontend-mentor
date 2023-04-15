@@ -1,13 +1,16 @@
 import { ReactNode, useContext } from 'react'
 
 import { GlobalContext } from './GlobalContext'
+import { initDefaultSteps } from '../utils/initDefaultSteps'
 
 type GlobalProviderTypes = {
     children: ReactNode
 }
 
 export const GlobalProvider = ({ children }: GlobalProviderTypes) => {
-    const value = {}
+    const value = {
+        steps: initDefaultSteps(),
+    }
 
     return (
         <GlobalContext.Provider value={value}>
