@@ -1,34 +1,9 @@
-import { StepsTypes } from './types'
+import { useGlobalContext } from '../../hooks/useGlobalContext'
 
 import * as S from './styles'
 
 const Sidebar = () => {
-    const steps: StepsTypes[] = [
-        {
-            id: 1,
-            name: 'Step 1',
-            content: 'Your Info',
-            state: 'active',
-        },
-        {
-            id: 2,
-            name: 'Step 2',
-            content: 'Select Plan',
-            state: 'disabled',
-        },
-        {
-            id: 3,
-            name: 'Step 3',
-            content: 'Add-ons',
-            state: 'disabled',
-        },
-        {
-            id: 4,
-            name: 'Step 4',
-            content: 'Summary',
-            state: 'disabled',
-        },
-    ]
+    const { steps } = useGlobalContext()
 
     return (
         <S.Wrapper>
