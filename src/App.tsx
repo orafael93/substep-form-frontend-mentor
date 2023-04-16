@@ -1,3 +1,4 @@
+import ActiveStep from './components/ActiveStep'
 import {
     GlobalWrapper,
     Wrapper,
@@ -7,7 +8,6 @@ import {
     Button,
 } from './components/GlobalWrapper'
 import Sidebar from './components/Sidebar'
-import Step1 from './components/Step1'
 
 function App() {
     return (
@@ -15,7 +15,7 @@ function App() {
             <Wrapper>
                 <Sidebar />
                 <WrapperContent>
-                    <Step1 />
+                    <ActiveStep />
                 </WrapperContent>
                 <WrapperNextStepMobile>
                     <BackButton>Go Back</BackButton>
