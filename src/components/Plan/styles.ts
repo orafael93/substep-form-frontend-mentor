@@ -41,6 +41,8 @@ export const NamePlan = styled.h3`
     ${({ theme }) => css`
         color: ${theme.denim};
 
+        text-transform: capitalize;
+
         font-size: 16px;
     `}
 `
