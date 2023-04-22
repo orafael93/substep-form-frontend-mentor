@@ -33,6 +33,8 @@ export const Wrapper = styled.div`
         width: 100%;
         max-width: 60rem;
 
+        min-height: 600px;
+
         @media (max-width: ${theme.breakpoints.tablet}px) {
             align-content: flex-start;
             grid-template-columns: 1fr;
