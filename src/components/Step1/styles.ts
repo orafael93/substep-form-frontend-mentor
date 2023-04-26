@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+    padding: 0 30px;
+`
 
 export const WrapperInput = styled.div`
     display: flex;
