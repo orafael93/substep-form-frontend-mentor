@@ -44,7 +44,7 @@ export const Step = styled.div`
 `
 
 type WrapperStepNumberTypes = {
-    state: 'active' | 'disabled'
+    state: 'active' | 'disabled' | 'completed'
 }
 
 const wrapperStepNumberModifier = {
@@ -52,6 +52,11 @@ const wrapperStepNumberModifier = {
         background: ${theme.skyBlue};
     `,
     disabled: (theme: DefaultTheme) => css`
+        background: transparent;
+        border: 2px solid ${theme.white};
+        color: ${theme.white};
+    `,
+    completed: (theme: DefaultTheme) => css`
         background: transparent;
         border: 2px solid ${theme.white};
         color: ${theme.white};
