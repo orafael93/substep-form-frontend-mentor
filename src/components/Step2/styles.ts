@@ -112,13 +112,17 @@ export const TypeOfPayment = styled.span<TypeOfPaymentPropTypes>`
 
 export const WrapperButtons = styled.div`
     ${({ theme }) => css`
-        display: none;
+        display: flex;
 
         @media (min-width: ${theme.breakpoints.tablet}px) {
-            display: flex;
             justify-content: space-between;
 
             margin-top: 100px;
+        }
+
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            margin-top: 50px;
+            justify-content: space-between;
         }
     `}
 `
@@ -139,8 +143,11 @@ export const BackButton = styled.button`
     `}
 `
 
-export const Button = styled.div`
+export const Button = styled.button`
     ${({ theme }) => css`
+        outline: none;
+        border: none;
+
         background: ${theme.denim};
 
         padding: 15px 25px;
@@ -149,6 +156,10 @@ export const Button = styled.div`
         border-radius: 8px;
 
         transition: 0.2s;
+
+        font-size: 16px;
+
+        font-weight: 500;
 
         &:hover {
             background: #164a8a;
