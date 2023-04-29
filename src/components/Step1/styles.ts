@@ -70,20 +70,21 @@ export const Input = styled.input<InputPropTypes>`
 
 export const WrapperNextStep = styled.div`
     ${({ theme }) => css`
-        display: none;
+        display: flex;
+        justify-content: flex-end;
 
         @media (min-width: ${theme.breakpoints.tablet}px) {
-            display: flex;
-            justify-content: flex-end;
-
             margin-top: 100px;
         }
     `}
 `
 
-export const Button = styled.div`
+export const Button = styled.button`
     ${({ theme }) => css`
         background: #164a8a;
+        border: none;
+
+        outline: none;
 
         padding: 15px 25px;
 
@@ -91,6 +92,9 @@ export const Button = styled.div`
         border-radius: 8px;
 
         transition: 0.2s;
+
+        font-size: 16px;
+        font-weight: 500;
 
         &:hover {
             background: ${theme.denim};
