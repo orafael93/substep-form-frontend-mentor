@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+    padding: 0 30px;
+`
 
 export const StepTitle = styled.h2`
     ${({ theme }) => css`
@@ -33,12 +35,11 @@ export const WrapperAddonsCards = styled.div`
 
 export const WrapperButtons = styled.div`
     ${({ theme }) => css`
-        display: none;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
 
         @media (min-width: ${theme.breakpoints.tablet}px) {
-            display: flex;
-            justify-content: space-between;
-
             margin-top: 100px;
         }
     `}
@@ -62,6 +63,9 @@ export const BackButton = styled.button`
 
 export const Button = styled.div`
     ${({ theme }) => css`
+        outline: none;
+        border: none;
+
         background: ${theme.denim};
 
         padding: 15px 25px;
@@ -70,6 +74,9 @@ export const Button = styled.div`
         border-radius: 8px;
 
         transition: 0.2s;
+
+        font-weight: 500;
+        font-size: 16px;
 
         &:hover {
             background: #164a8a;
