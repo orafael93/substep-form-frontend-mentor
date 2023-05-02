@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+    padding: 0 30px;
+`
 
 export const StepTitle = styled.h2`
     ${({ theme }) => css`
@@ -136,12 +138,11 @@ export const PriceValue = styled.p`
 
 export const WrapperButtons = styled.div`
     ${({ theme }) => css`
-        display: none;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
 
         @media (min-width: ${theme.breakpoints.tablet}px) {
-            display: flex;
-            justify-content: space-between;
-
             margin-top: 100px;
         }
     `}
