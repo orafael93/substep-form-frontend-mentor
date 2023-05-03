@@ -1,20 +1,23 @@
 import { useState } from 'react'
 
-import { usePersonalInfo } from '../../utils/handlePersonalInfo'
+import { handlePersonalInfo } from '../../utils/handlePersonalInfo'
+import { useSteps } from '../../hooks/useSteps'
+import { usePersonalInfo } from '../../hooks/usePersonalInfo'
 
 import * as S from './styles'
 
 const Step1 = () => {
     const [canValidateFields, setCanValidateFields] = useState(false)
+    const { onCompleteStep } = useSteps()
+    const { onUpdatePersonalInfo, info } = usePersonalInfo()
 
     const [personalInfo, setPersonalInfo] = useState({
-        name: '',
-        email: '',
-        phone: '',
+        name: info?.name || '',
+        email: info?.email || '',
+        phone: info?.phone || '',
     })
 
-    const unfilledFields = usePersonalInfo(personalInfo)
-    const canGoToNextStep = unfilledFields.length === 0
+    const unfilledFields = handlePersonalInfo(personalInfo)
 
     const inputNameHasError =
         canValidateFields && unfilledFields.includes('name')
@@ -25,6 +28,11 @@ const Step1 = () => {
 
     const onGoToNextStep = () => {
         setCanValidateFields(true)
+
+        if (!unfilledFields.length) {
+            onUpdatePersonalInfo(personalInfo)
+            onCompleteStep('info')
+        }
     }
 
     return (
@@ -46,13 +54,14 @@ const Step1 = () => {
                     id="name"
                     placeholder="e.g Stephen King"
                     value={personalInfo.name}
+                    error={inputNameHasError}
                     onChange={(e) =>
                         setPersonalInfo({
                             ...personalInfo,
                             name: e.target.value,
                         })
                     }
-                    error={inputNameHasError}
+                    autoComplete="off"
                 />
             </S.WrapperInput>
             <S.WrapperInput>
@@ -76,6 +85,7 @@ const Step1 = () => {
                             email: e.target.value,
                         })
                     }
+                    autoComplete="off"
                 />
             </S.WrapperInput>
             <S.WrapperInput>
@@ -99,6 +109,7 @@ const Step1 = () => {
                             phone: e.target.value,
                         })
                     }
+                    autoComplete="off"
                 />
             </S.WrapperInput>
             <S.WrapperNextStep>
