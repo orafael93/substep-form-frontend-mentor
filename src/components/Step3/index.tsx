@@ -1,8 +1,38 @@
+import { useState } from 'react'
+
 import AddonsCard from '../AddonsCard'
+import { useSteps } from '../../hooks/useSteps'
+import { useAddons } from '../../hooks/useAddons'
+import { Addons } from '../../context/GlobalContext'
 
 import * as S from './styles'
 
 const Step3 = () => {
+    const { onUpdateAddons, addons } = useAddons()
+    const [addonsAdded, setAddonsAdded] = useState<Addons[]>(addons || [])
+    const { onCompleteStep, onActiveStep } = useSteps()
+
+    const onGoToNextStep = () => {
+        onCompleteStep('addons')
+        onUpdateAddons(addonsAdded)
+    }
+
+    const onAddAddons = (addon: Addons) => {
+        setAddonsAdded((prevState) => {
+            const addonAlreadyAdded = prevState.find(
+                (prevAddon) => prevAddon.type === addon.type
+            )
+
+            if (addonAlreadyAdded) {
+                return prevState.filter(
+                    (prevAddon) => prevAddon.type !== addon.type
+                )
+            }
+
+            return [...prevState, addon]
+        })
+    }
+
     return (
         <S.Wrapper>
             <S.StepTitle>Pick add-ons</S.StepTitle>
@@ -11,24 +41,32 @@ const Step3 = () => {
             </S.StepDescription>
             <S.WrapperAddonsCards>
                 <AddonsCard
+                    id="online-service"
                     serviceName="Online service"
                     serviceDescription="Access to multiplayer games"
                     servicePrice="1"
+                    onAddAddons={onAddAddons}
                 />
                 <AddonsCard
+                    id="larger-storage"
                     serviceName="Larger storage"
                     serviceDescription="Extra 1TB of cloud save"
                     servicePrice="2"
+                    onAddAddons={onAddAddons}
                 />
                 <AddonsCard
+                    id="customizable-profile"
                     serviceName="Customizable profile"
                     serviceDescription="Custom theme on your profile"
                     servicePrice="2"
+                    onAddAddons={onAddAddons}
                 />
             </S.WrapperAddonsCards>
             <S.WrapperButtons>
-                <S.BackButton>Go Back</S.BackButton>
-                <S.Button>Next Step</S.Button>
+                <S.BackButton onClick={() => onActiveStep('plan')}>
+                    Go Back
+                </S.BackButton>
+                <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
             </S.WrapperButtons>
         </S.Wrapper>
     )
