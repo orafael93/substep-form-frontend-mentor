@@ -1,4 +1,4 @@
-import { useGlobalState } from './useGlobalState'
+import { useGlobalState } from '@/hooks/useGlobalState'
 
 export const useCompletedForm = () => {
     const { completedFormModule } = useGlobalState()

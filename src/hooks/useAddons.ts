@@ -1,5 +1,5 @@
-import { AddonsType } from '../context/GlobalContext'
-import { useGlobalState } from './useGlobalState'
+import { AddonsType } from '@/context/GlobalContext'
+import { useGlobalState } from '@/hooks/useGlobalState'
 
 export const useAddons = () => {
     const { addonsModule } = useGlobalState()
