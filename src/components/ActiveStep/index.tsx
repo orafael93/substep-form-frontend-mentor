@@ -1,10 +1,10 @@
-import { useSteps } from '@/hooks/useSteps'
-import { PersonalInfo } from '@/components/PersonalInfo'
-import { SelectPlan } from '@/components/SelectPlan'
 import { Addons } from '@/components/Addons'
-import Step4 from '@/components/Step4'
-import FinishedForm from '@/components/FinishedForm'
+import { useSteps } from '@/hooks/useSteps'
+import { SelectPlan } from '@/components/SelectPlan'
+import { FinishingUp } from '@/components/FinishingUp'
+import { PersonalInfo } from '@/components/PersonalInfo'
 import { useCompletedForm } from '@/hooks/useCompletedForm'
+import FinishedForm from '@/components/FinishedForm'
 
 const ActiveStep = () => {
     const { steps } = useSteps()
@@ -21,7 +21,7 @@ const ActiveStep = () => {
             case 'addons':
                 return Addons
             default:
-                return Step4
+                return FinishingUp
         }
     }
 

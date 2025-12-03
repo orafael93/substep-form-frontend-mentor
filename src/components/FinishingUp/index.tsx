@@ -1,11 +1,11 @@
-import { useAddons } from '../../hooks/useAddons'
-import { useCompletedForm } from '../../hooks/useCompletedForm'
-import { usePlan } from '../../hooks/usePlan'
-import { useSteps } from '../../hooks/useSteps'
+import { usePlan } from '@/hooks/usePlan'
+import { useSteps } from '@/hooks/useSteps'
+import { useAddons } from '@/hooks/useAddons'
+import { useCompletedForm } from '@/hooks/useCompletedForm'
 
 import * as S from './styles'
 
-const Step4 = () => {
+export const FinishingUp = () => {
     const { addons } = useAddons()
     const { plan } = usePlan()
     const { onActiveStep } = useSteps()
@@ -56,35 +56,35 @@ const Step4 = () => {
                 Double-check everything looks OK before confirming
             </S.StepDescription>
 
-            <S.WrapperSelectedContent>
-                <S.WrapperStepContent>
-                    <S.WrapperNameSelectedContent>
+            <S.SelectedContentWrapper>
+                <S.StepContentWrapper>
+                    <S.SelectedNameContentWrapper>
                         <S.Name>
                             {mappedPlan.name} ({mappedPlan.frequencyLongText})
                         </S.Name>
                         <S.Price onClick={() => onActiveStep('plan')}>
                             Change
                         </S.Price>
-                    </S.WrapperNameSelectedContent>
-                    <S.WrapperSelectedPrice>
-                        <S.SelectedPrice>
+                    </S.SelectedNameContentWrapper>
+                    <S.PriceSelectedWrapper>
+                        <S.PriceSelected>
                             ${mappedPlan.price}/{mappedPlan.frequencyShorText}
-                        </S.SelectedPrice>
-                    </S.WrapperSelectedPrice>
-                </S.WrapperStepContent>
-                <S.WrapperAddons>
+                        </S.PriceSelected>
+                    </S.PriceSelectedWrapper>
+                </S.StepContentWrapper>
+                <S.AddonsWrapper>
                     {mappedAddons?.map(({ type, price, frequency }) => (
-                        <S.WrapperAddon key={type}>
+                        <S.AddonWrapper key={type}>
                             <S.AddonNameService>{type}</S.AddonNameService>
                             <S.AddonPrice>
                                 +{price}/{frequency}
                             </S.AddonPrice>
-                        </S.WrapperAddon>
+                        </S.AddonWrapper>
                     ))}
-                </S.WrapperAddons>
-            </S.WrapperSelectedContent>
+                </S.AddonsWrapper>
+            </S.SelectedContentWrapper>
 
-            <S.WrapperTotalPrice>
+            <S.TotalPriceWrapper>
                 <S.PriceText>
                     Total ({totalPriceContent.totalTextLong})
                 </S.PriceText>
@@ -92,16 +92,14 @@ const Step4 = () => {
                     ${totalPriceContent.price}/
                     {totalPriceContent.totalTextShort}
                 </S.PriceValue>
-            </S.WrapperTotalPrice>
+            </S.TotalPriceWrapper>
 
-            <S.WrapperButtons>
+            <S.ButtonsWrapper>
                 <S.BackButton onClick={() => onActiveStep('addons')}>
                     Go Back
                 </S.BackButton>
                 <S.Button onClick={onCompleteForm}>Confirm</S.Button>
-            </S.WrapperButtons>
+            </S.ButtonsWrapper>
         </S.Wrapper>
     )
 }
-
-export default Step4

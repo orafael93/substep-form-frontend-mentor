@@ -25,7 +25,7 @@ export const StepDescription = styled.p`
     `}
 `
 
-export const WrapperSelectedContent = styled.div`
+export const SelectedContentWrapper = styled.div`
     ${({ theme }) => css`
         background: ${theme.veryLightGrey};
         padding: 20px;
@@ -34,7 +34,7 @@ export const WrapperSelectedContent = styled.div`
     `}
 `
 
-export const WrapperStepContent = styled.div`
+export const StepContentWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,7 +43,7 @@ export const WrapperStepContent = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `
 
-export const WrapperNameSelectedContent = styled.div``
+export const SelectedNameContentWrapper = styled.div``
 
 export const Name = styled.p`
     ${({ theme }) => css`
@@ -74,9 +74,9 @@ export const Price = styled.span`
     `}
 `
 
-export const WrapperSelectedPrice = styled.div``
+export const PriceSelectedWrapper = styled.div``
 
-export const SelectedPrice = styled.span`
+export const PriceSelected = styled.span`
     ${({ theme }) => css`
         font-weight: bold;
         font-size: 16px;
@@ -84,11 +84,11 @@ export const SelectedPrice = styled.span`
     `}
 `
 
-export const WrapperAddons = styled.div`
+export const AddonsWrapper = styled.div`
     margin-top: 16px;
 `
 
-export const WrapperAddon = styled.div`
+export const AddonWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 
@@ -111,7 +111,7 @@ export const AddonPrice = styled.p`
     `}
 `
 
-export const WrapperTotalPrice = styled.div`
+export const TotalPriceWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 
@@ -136,7 +136,7 @@ export const PriceValue = styled.p`
     `}
 `
 
-export const WrapperButtons = styled.div`
+export const ButtonsWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
         justify-content: space-between;
