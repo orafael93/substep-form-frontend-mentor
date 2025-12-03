@@ -1,24 +1,29 @@
 import { ReactNode, useReducer, useState } from 'react'
 
-import { Addons, GlobalContext, InfoTypes, Plan } from './GlobalContext'
-import { initDefaultSteps } from '../utils/initDefaultSteps'
-import { StepName, StepsTypes } from '../components/Sidebar/types'
+import {
+    AddonsType,
+    GlobalContext,
+    InfoType,
+    Plan,
+} from '@/context/GlobalContext'
+import { initDefaultSteps } from '@/utils/initDefaultSteps'
+import { StepNameType, StepsType } from '@/components/Sidebar/types'
 
-type GlobalProviderTypes = {
+type GlobalProviderType = {
     children: ReactNode
 }
 
 export type StepsActions =
     | {
           type: 'activeStep'
-          payload: StepName
+          payload: StepNameType
       }
     | {
           type: 'completeStep'
-          payload: StepName
+          payload: StepNameType
       }
 
-const activeNextStep = (steps: StepsTypes[], stepIndexToActive: number) => {
+const activeNextStep = (steps: StepsType[], stepIndexToActive: number) => {
     const isLastStep = steps.length === stepIndexToActive
 
     if (!isLastStep) {
@@ -31,14 +36,14 @@ const activeNextStep = (steps: StepsTypes[], stepIndexToActive: number) => {
 }
 
 const completeStep = (
-    steps: StepsTypes[],
-    stepNameToComplete: StepName
-): StepsTypes[] => {
+    steps: StepsType[],
+    stepNameToComplete: StepNameType
+): StepsType[] => {
     const indexStepToComplete = steps.findIndex(
         (step) => step.id === stepNameToComplete
     )
 
-    const mappedSteps: StepsTypes[] = steps.map((step) => {
+    const mappedSteps: StepsType[] = steps.map((step) => {
         if (step.id === stepNameToComplete) {
             return { ...step, state: 'completed' }
         }
@@ -49,14 +54,14 @@ const completeStep = (
     return activeNextStep(mappedSteps, indexStepToComplete + 1)
 }
 
-const activeStep = (steps: StepsTypes[], stepNameToActive: StepName) => {
+const activeStep = (steps: StepsType[], stepNameToActive: StepNameType) => {
     const nextStepToActive = steps.find((step) => step.id === stepNameToActive)
 
     if (nextStepToActive?.state === 'disabled') {
         return steps
     }
 
-    const mappedSteps: StepsTypes[] = steps.map((step) => {
+    const mappedSteps: StepsType[] = steps.map((step) => {
         if (step.id === stepNameToActive) {
             return { ...step, state: 'active' }
         }
@@ -71,13 +76,13 @@ const activeStep = (steps: StepsTypes[], stepNameToActive: StepName) => {
     return mappedSteps
 }
 
-export const GlobalProvider = ({ children }: GlobalProviderTypes) => {
+export const GlobalProvider = ({ children }: GlobalProviderType) => {
     const initialSteps = initDefaultSteps()
 
     const stepsReducer = (
-        state: StepsTypes[],
+        state: StepsType[],
         action: StepsActions
-    ): StepsTypes[] => {
+    ): StepsType[] => {
         switch (action.type) {
             case 'activeStep':
                 return activeStep(state, action.payload)
@@ -89,9 +94,9 @@ export const GlobalProvider = ({ children }: GlobalProviderTypes) => {
     }
 
     const states = {
-        infoModule: useState<InfoTypes>(),
+        infoModule: useState<InfoType>(),
         planModule: useState<Plan>(),
-        addonsModule: useState<Addons[]>([]),
+        addonsModule: useState<AddonsType[]>([]),
         stepsModule: useReducer(stepsReducer, initialSteps),
         completedFormModule: useState(false),
     }

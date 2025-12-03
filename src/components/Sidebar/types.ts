@@ -1,11 +1,11 @@
-export type StepState = 'active' | 'disabled' | 'completed'
+export type StepStateType = 'active' | 'disabled' | 'completed'
 
-export type StepName = 'info' | 'plan' | 'addons' | 'summary'
+export type StepNameType = 'info' | 'plan' | 'addons' | 'summary'
 
-export type StepsTypes = {
-    id: StepName
+export type StepsType = {
+    id: StepNameType
     name: string
     content: string
-    state: StepState
+    state: StepStateType
     slug: number
 }

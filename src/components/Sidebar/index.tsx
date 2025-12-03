@@ -1,14 +1,14 @@
-import { useCompletedForm } from '../../hooks/useCompletedForm'
-import { useSteps } from '../../hooks/useSteps'
+import { useSteps } from '@/hooks/useSteps'
+import { StepNameType } from '@/components/Sidebar/types'
+import { useCompletedForm } from '@/hooks/useCompletedForm'
 
 import * as S from './styles'
-import { StepName } from './types'
 
-const Sidebar = () => {
+export const Sidebar = () => {
     const { steps, onActiveStep } = useSteps()
     const { completedForm } = useCompletedForm()
 
-    const handleActiveStep = (idStepToActive: StepName) => {
+    const handleActiveStep = (idStepToActive: StepNameType) => {
         if (completedForm) return
         onActiveStep(idStepToActive)
     }
@@ -29,5 +29,3 @@ const Sidebar = () => {
         </S.Wrapper>
     )
 }
-
-export default Sidebar

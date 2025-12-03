@@ -1,6 +1,6 @@
-import { StepsTypes } from '../../components/Sidebar/types'
+import { StepsType } from '@/components/Sidebar/types'
 
-export const initDefaultSteps = (): StepsTypes[] => [
+export const initDefaultSteps = (): StepsType[] => [
     {
         id: 'info',
         name: 'Step 1',

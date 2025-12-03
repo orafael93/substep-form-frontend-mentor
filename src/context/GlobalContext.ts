@@ -1,6 +1,7 @@
 import { createContext } from 'react'
-import { StepsTypes } from '../components/Sidebar/types'
-import { StepsActions } from './GlobalProvider'
+
+import { StepsType } from '@/components/Sidebar/types'
+import { StepsActions } from '@/context/GlobalProvider'
 
 export type InfoType = {
     name: string
@@ -33,7 +34,7 @@ export type GlobalContextStates = {
     infoModule: [InfoType | undefined, React.Dispatch<InfoType>]
     planModule: [Plan | undefined, React.Dispatch<Plan>]
     addonsModule: [AddonsType[] | undefined, React.Dispatch<AddonsType[]>]
-    stepsModule: [StepsTypes[], React.Dispatch<StepsActions>]
+    stepsModule: [StepsType[], React.Dispatch<StepsActions>]
     completedFormModule: [boolean, React.Dispatch<boolean>]
 }
 
