@@ -45,7 +45,7 @@ export const Wrapper = styled.div`
     `}
 `
 
-export const WrapperContent = styled.div`
+export const ContentWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
         justify-content: center;
@@ -71,7 +71,7 @@ export const WrapperContent = styled.div`
     `}
 `
 
-export const WrapperNextStepMobile = styled.div`
+export const NextStepMobileWrapper = styled.div`
     ${({ theme }) => css`
         position: absolute;
         bottom: 0;

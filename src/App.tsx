@@ -2,7 +2,7 @@ import { ActiveStep } from '@/components/ActiveStep'
 import {
     GlobalWrapper,
     Wrapper,
-    WrapperContent,
+    ContentWrapper,
 } from '@/components/GlobalWrapper'
 import Sidebar from '@/components/Sidebar'
 
@@ -10,9 +10,9 @@ export const App = () => (
     <GlobalWrapper>
         <Wrapper>
             <Sidebar />
-            <WrapperContent>
+            <ContentWrapper>
                 <ActiveStep />
-            </WrapperContent>
+            </ContentWrapper>
         </Wrapper>
     </GlobalWrapper>
 )
