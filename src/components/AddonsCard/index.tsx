@@ -1,6 +1,6 @@
 import { MouseEvent, useState } from 'react'
 
-import { AddonsCardPropTypes } from '../Step1/types'
+import { AddonsCardPropTypes } from '../PersonalInfo/types'
 import { useAddons } from '../../hooks/useAddons'
 import { usePlan } from '../../hooks/usePlan'
 

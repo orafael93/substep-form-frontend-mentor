@@ -1,6 +1,6 @@
-import { Addons, AddonsTypes } from '../../context/GlobalContext'
+import { Addons, AddonsTypes } from '@/context/GlobalContext'
 
-export type AddonsCardPropTypes = {
+export type AddonsCardType = {
     id: AddonsTypes
     serviceName: string
     serviceDescription: string

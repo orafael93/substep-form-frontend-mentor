@@ -1,5 +1,5 @@
-import { InfoTypes } from '../context/GlobalContext'
-import { useGlobalState } from './useGlobalState'
+import { InfoTypes } from '@/context/GlobalContext'
+import { useGlobalState } from '@/hooks/useGlobalState'
 
 export const usePersonalInfo = () => {
     const { infoModule } = useGlobalState()

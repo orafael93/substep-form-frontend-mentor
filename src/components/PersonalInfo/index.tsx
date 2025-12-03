@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
-import { handlePersonalInfo } from '../../utils/handlePersonalInfo'
-import { useSteps } from '../../hooks/useSteps'
-import { usePersonalInfo } from '../../hooks/usePersonalInfo'
+import { useSteps } from '@/hooks/useSteps'
+import { usePersonalInfo } from '@/hooks/usePersonalInfo'
+import { handlePersonalInfo } from '@/utils/handlePersonalInfo'
 
 import * as S from './styles'
 
-const Step1 = () => {
+export const PersonalInfo = () => {
     const [canValidateFields, setCanValidateFields] = useState(false)
     const { onCompleteStep } = useSteps()
     const { onUpdatePersonalInfo, info } = usePersonalInfo()
@@ -41,15 +41,15 @@ const Step1 = () => {
             <S.StepDescription>
                 Prease provide your name, email adress, and phone number
             </S.StepDescription>
-            <S.WrapperInput>
-                <S.WrapperLabelField>
+            <S.InputWrapper>
+                <S.FieldLabelWrapper>
                     <S.Label htmlFor="name">Name</S.Label>
                     {inputNameHasError && (
                         <S.RequiredFieldText>
                             This field is required.
                         </S.RequiredFieldText>
                     )}
-                </S.WrapperLabelField>
+                </S.FieldLabelWrapper>
                 <S.Input
                     id="name"
                     placeholder="e.g Stephen King"
@@ -63,16 +63,16 @@ const Step1 = () => {
                     }
                     autoComplete="off"
                 />
-            </S.WrapperInput>
-            <S.WrapperInput>
-                <S.WrapperLabelField>
+            </S.InputWrapper>
+            <S.InputWrapper>
+                <S.FieldLabelWrapper>
                     <S.Label htmlFor="name">Email Address</S.Label>
                     {inputEmailHasError && (
                         <S.RequiredFieldText>
                             This field is required.
                         </S.RequiredFieldText>
                     )}
-                </S.WrapperLabelField>
+                </S.FieldLabelWrapper>
                 <S.Input
                     type="email"
                     id="name"
@@ -87,9 +87,9 @@ const Step1 = () => {
                     }
                     autoComplete="off"
                 />
-            </S.WrapperInput>
-            <S.WrapperInput>
-                <S.WrapperLabelField>
+            </S.InputWrapper>
+            <S.InputWrapper>
+                <S.FieldLabelWrapper>
                     <S.Label htmlFor="name">Phone number</S.Label>
 
                     {inputPhoneHasError && (
@@ -97,7 +97,7 @@ const Step1 = () => {
                             This field is required.
                         </S.RequiredFieldText>
                     )}
-                </S.WrapperLabelField>
+                </S.FieldLabelWrapper>
                 <S.Input
                     id="name"
                     placeholder="e.g +1 234 567 890"
@@ -111,12 +111,10 @@ const Step1 = () => {
                     }
                     autoComplete="off"
                 />
-            </S.WrapperInput>
-            <S.WrapperNextStep>
+            </S.InputWrapper>
+            <S.NextStepWrapper>
                 <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
-            </S.WrapperNextStep>
+            </S.NextStepWrapper>
         </S.Wrapper>
     )
 }
-
-export default Step1

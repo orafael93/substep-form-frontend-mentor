@@ -24,7 +24,6 @@ const GlobalStyles: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
       html,
       body {
           width: 100%;
-          height: 100vh;
           background: ${theme.bg};
           font-family: 'Ubuntu';
       }

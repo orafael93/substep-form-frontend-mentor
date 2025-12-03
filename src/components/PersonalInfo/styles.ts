@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
     padding: 0 30px;
 `
 
-export const WrapperInput = styled.div`
+export const InputWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
@@ -37,11 +37,11 @@ export const Label = styled.label`
     `}
 `
 
-type InputPropTypes = {
+type InputType = {
     error: boolean
 }
 
-export const Input = styled.input<InputPropTypes>`
+export const Input = styled.input<InputType>`
     ${({ theme, error }) => css`
         padding: 15px;
         background: ${theme.white};
@@ -68,7 +68,7 @@ export const Input = styled.input<InputPropTypes>`
     `}
 `
 
-export const WrapperNextStep = styled.div`
+export const NextStepWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
         justify-content: flex-end;
@@ -110,7 +110,7 @@ export const RequiredFieldText = styled.p`
     `}
 `
 
-export const WrapperLabelField = styled.div`
+export const FieldLabelWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
