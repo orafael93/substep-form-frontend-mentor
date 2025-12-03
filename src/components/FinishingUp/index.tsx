@@ -66,11 +66,11 @@ export const FinishingUp = () => {
                             Change
                         </S.Price>
                     </S.SelectedNameContentWrapper>
-                    <S.PriceSelectedWrapper>
-                        <S.PriceSelected>
+                    <S.SelectedPriceWrapper>
+                        <S.SelectedPrice>
                             ${mappedPlan.price}/{mappedPlan.frequencyShorText}
-                        </S.PriceSelected>
-                    </S.PriceSelectedWrapper>
+                        </S.SelectedPrice>
+                    </S.SelectedPriceWrapper>
                 </S.StepContentWrapper>
                 <S.AddonsWrapper>
                     {mappedAddons?.map(({ type, price, frequency }) => (

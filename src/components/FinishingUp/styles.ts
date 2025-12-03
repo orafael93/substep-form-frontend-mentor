@@ -74,9 +74,9 @@ export const Price = styled.span`
     `}
 `
 
-export const PriceSelectedWrapper = styled.div``
+export const SelectedPriceWrapper = styled.div``
 
-export const PriceSelected = styled.span`
+export const SelectedPrice = styled.span`
     ${({ theme }) => css`
         font-weight: bold;
         font-size: 16px;
