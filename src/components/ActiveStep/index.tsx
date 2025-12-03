@@ -1,7 +1,7 @@
 import { useSteps } from '@/hooks/useSteps'
 import { PersonalInfo } from '@/components/PersonalInfo'
 import { SelectPlan } from '@/components/SelectPlan'
-import Step3 from '@/components/Step3'
+import { Addons } from '@/components/Addons'
 import Step4 from '@/components/Step4'
 import FinishedForm from '@/components/FinishedForm'
 import { useCompletedForm } from '@/hooks/useCompletedForm'
@@ -19,7 +19,7 @@ const ActiveStep = () => {
             case 'plan':
                 return SelectPlan
             case 'addons':
-                return Step3
+                return Addons
             default:
                 return Step4
         }

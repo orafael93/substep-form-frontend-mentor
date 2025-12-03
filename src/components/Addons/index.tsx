@@ -1,15 +1,15 @@
 import { useState } from 'react'
 
-import AddonsCard from '../AddonsCard'
-import { useSteps } from '../../hooks/useSteps'
-import { useAddons } from '../../hooks/useAddons'
-import { Addons } from '../../context/GlobalContext'
+import AddonsCard from '@/components/AddonsCard'
+import { useSteps } from '@/hooks/useSteps'
+import { useAddons } from '@/hooks/useAddons'
+import { AddonsType } from '@/context/GlobalContext'
 
 import * as S from './styles'
 
-const Step3 = () => {
+export const Addons = () => {
     const { onUpdateAddons, addons } = useAddons()
-    const [addonsAdded, setAddonsAdded] = useState<Addons[]>(addons || [])
+    const [addonsAdded, setAddonsAdded] = useState<AddonsType[]>(addons || [])
     const { onCompleteStep, onActiveStep } = useSteps()
 
     const onGoToNextStep = () => {
@@ -17,7 +17,7 @@ const Step3 = () => {
         onUpdateAddons(addonsAdded)
     }
 
-    const onAddAddons = (addon: Addons) => {
+    const onAddAddons = (addon: AddonsType) => {
         setAddonsAdded((prevState) => {
             const addonAlreadyAdded = prevState.find(
                 (prevAddon) => prevAddon.type === addon.type
@@ -71,5 +71,3 @@ const Step3 = () => {
         </S.Wrapper>
     )
 }
-
-export default Step3

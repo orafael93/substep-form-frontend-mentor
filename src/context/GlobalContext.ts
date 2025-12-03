@@ -23,7 +23,7 @@ export type AddonsTypes =
     | 'larger-storage'
     | 'customizable-profile'
 
-export type Addons = {
+export type AddonsType = {
     type: AddonsTypes
     price: string
     frequency: Frequency
@@ -32,7 +32,7 @@ export type Addons = {
 export type GlobalContextStates = {
     infoModule: [InfoType | undefined, React.Dispatch<InfoType>]
     planModule: [Plan | undefined, React.Dispatch<Plan>]
-    addonsModule: [Addons[] | undefined, React.Dispatch<Addons[]>]
+    addonsModule: [AddonsType[] | undefined, React.Dispatch<AddonsType[]>]
     stepsModule: [StepsTypes[], React.Dispatch<StepsActions>]
     completedFormModule: [boolean, React.Dispatch<boolean>]
 }

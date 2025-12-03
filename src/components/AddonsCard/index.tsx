@@ -1,6 +1,6 @@
 import { MouseEvent, useState } from 'react'
 
-import { AddonsCardPropTypes } from '../PersonalInfo/types'
+import { AddonsCardType } from '../PersonalInfo/types'
 import { useAddons } from '../../hooks/useAddons'
 import { usePlan } from '../../hooks/usePlan'
 
@@ -12,7 +12,7 @@ const AddonsCard = ({
     serviceDescription,
     servicePrice,
     onAddAddons,
-}: AddonsCardPropTypes) => {
+}: AddonsCardType) => {
     const { plan } = usePlan()
     const { addons } = useAddons()
     const addonAlreadyChecked = addons?.find(
