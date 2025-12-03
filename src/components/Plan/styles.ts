@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
 
-type PlanTypes = {
+type PlanType = {
     selectedPlan: boolean
 }
 
-export const Plan = styled.div<PlanTypes>`
+export const Plan = styled.div<PlanType>`
     ${({ theme, selectedPlan }) => css`
         display: flex;
         flex-direction: column;
@@ -35,7 +35,7 @@ export const Plan = styled.div<PlanTypes>`
     `}
 `
 
-export const WrapperPlanIcon = styled.div``
+export const PlanIconWrapper = styled.div``
 
 export const NamePlan = styled.h3`
     ${({ theme }) => css`
@@ -47,7 +47,7 @@ export const NamePlan = styled.h3`
     `}
 `
 
-export const PricePlan = styled.span`
+export const PlanPrice = styled.span`
     ${({ theme }) => css`
         display: inline-block;
 

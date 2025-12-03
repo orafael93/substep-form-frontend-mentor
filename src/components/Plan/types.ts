@@ -1,6 +1,6 @@
 import { TypeOfPlansType } from '@/components/SelectPlan/types'
 
-export type PlanPropTypes = {
+export type PlanType = {
     name: TypeOfPlansType
     price: number
     icon?: JSX.Element

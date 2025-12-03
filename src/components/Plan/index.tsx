@@ -1,26 +1,19 @@
-import { PlanPropTypes } from './types'
-
+import * as Types from './types'
 import * as S from './styles'
 
-const Plan = ({
-    name,
-    price,
-    icon,
-    selectedPlan,
-    typeOfPayment,
-    onSelectPlan,
-}: PlanPropTypes) => {
+export const Plan = (props: Types.PlanType) => {
+    const { name, price, icon, selectedPlan, typeOfPayment, onSelectPlan } =
+        props
+
     return (
         <S.Plan selectedPlan={selectedPlan} onClick={() => onSelectPlan(name)}>
-            {icon && <S.WrapperPlanIcon>{icon}</S.WrapperPlanIcon>}
+            {icon && <S.PlanIconWrapper>{icon}</S.PlanIconWrapper>}
             <S.PlanDescription>
                 <S.NamePlan>{name}</S.NamePlan>
-                <S.PricePlan>
+                <S.PlanPrice>
                     ${price}/{typeOfPayment}
-                </S.PricePlan>
+                </S.PlanPrice>
             </S.PlanDescription>
         </S.Plan>
     )
 }
-
-export default Plan
