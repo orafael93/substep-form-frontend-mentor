@@ -6,7 +6,7 @@ import { PersonalInfo } from '@/components/PersonalInfo'
 import { FinishedForm } from '@/components/FinishedForm'
 import { useCompletedForm } from '@/hooks/useCompletedForm'
 
-const ActiveStep = () => {
+export const ActiveStep = () => {
     const { steps } = useSteps()
     const { completedForm } = useCompletedForm()
 
@@ -29,5 +29,3 @@ const ActiveStep = () => {
 
     return completedForm ? <FinishedForm /> : <ActiveComponent />
 }
-
-export default ActiveStep
