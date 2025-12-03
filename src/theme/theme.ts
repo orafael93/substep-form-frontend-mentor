@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components'
 
-const theme: DefaultTheme = {
+export const theme: DefaultTheme = {
     bg: '#EFF5FF',
     borderColor: '#D6D9E6',
     denim: '#022959',
@@ -20,5 +20,3 @@ const theme: DefaultTheme = {
         desktop: 1025,
     },
 } as const
-
-export default theme

@@ -5,7 +5,10 @@ import {
     GlobalStyleComponent,
 } from 'styled-components'
 
-const GlobalStyles: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
+export const GlobalStyles: GlobalStyleComponent<
+    {},
+    DefaultTheme
+> = createGlobalStyle`
     * {
       margin: 0;
       padding: 0;
@@ -33,5 +36,3 @@ const GlobalStyles: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
     height: 100%;
   }
 `
-
-export default GlobalStyles
