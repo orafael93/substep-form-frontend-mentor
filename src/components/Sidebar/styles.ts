@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
         padding: 40px 32px;
 
         background-color: ${theme.purple};
-        background-image: url('src/assets/bg-sidebar-desktop.svg');
+        background-image: url('/bg-sidebar-desktop.svg');
         background-repeat: no-repeat;
         background-position-y: bottom;
         background-size: cover;
@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
             height: fit-content;
 
             background: ${theme.purple};
-            background-image: url('src/assets/bg-sidebar-mobile.svg');
+            background-image: url('/bg-sidebar-mobile.svg');
             background-position: center;
             background-size: 100%;
             background-repeat: no-repeat;
