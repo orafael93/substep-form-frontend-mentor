@@ -29,7 +29,7 @@ export const StepDescription = styled.p`
     `}
 `
 
-export const WrapperPlan = styled.div`
+export const PlanWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
         gap: 18px;
@@ -56,7 +56,7 @@ export const BillingFrequency = styled.div`
     `}
 `
 
-export const WrapperToggle = styled.label`
+export const ToggleWrapper = styled.label`
     ${({ theme }) => css`
         display: flex;
 
@@ -67,7 +67,7 @@ export const WrapperToggle = styled.label`
     `}
 `
 
-export const WrapperPill = styled.div`
+export const PillWrapper = styled.div`
     width: 100%;
 
     display: flex;
@@ -77,11 +77,11 @@ export const WrapperPill = styled.div`
     cursor: pointer;
 `
 
-export type PillPropTypes = {
+export type PillType = {
     checked: boolean
 }
 
-export const Pill = styled.div<PillPropTypes>`
+export const Pill = styled.div<PillType>`
     ${({ theme, checked }) => css`
         width: 12px;
         height: 12px;
@@ -100,17 +100,17 @@ export const Checkbox = styled.input`
     display: none;
 `
 
-type TypeOfPaymentPropTypes = {
+type TypeOfPaymentType = {
     typeOfPayment: boolean
 }
 
-export const TypeOfPayment = styled.span<TypeOfPaymentPropTypes>`
+export const TypeOfPayment = styled.span<TypeOfPaymentType>`
     ${({ theme, typeOfPayment }) => css`
         color: ${typeOfPayment ? theme.grey : theme.denim};
     `}
 `
 
-export const WrapperButtons = styled.div`
+export const ButtonsWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
 

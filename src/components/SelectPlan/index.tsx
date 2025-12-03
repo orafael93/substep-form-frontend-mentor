@@ -1,9 +1,9 @@
 import { MouseEvent, useState } from 'react'
 
-import Plan from '@/components/Plan'
 import ProIcon from '@/assets/icon-pro.svg'
 import ArcadeIcon from '@/assets/icon-arcade.svg'
 import AdvancedIcon from '@/assets/icon-advanced.svg'
+import { Plan } from '@/components/Plan'
 import { useSteps } from '@/hooks/useSteps'
 import { usePlan } from '@/hooks/usePlan'
 
@@ -71,7 +71,7 @@ export const SelectPlan = () => {
             <S.StepDescription>
                 You have the option of monthly or yearly billing
             </S.StepDescription>
-            <S.WrapperPlan>
+            <S.PlanWrapper>
                 {plans.map(({ name, price, icon }) => (
                     <Plan
                         key={name}
@@ -83,31 +83,31 @@ export const SelectPlan = () => {
                         onSelectPlan={() => onSelectPlan({ name, price })}
                     />
                 ))}
-            </S.WrapperPlan>
+            </S.PlanWrapper>
             <S.BillingFrequency>
                 <S.TypeOfPayment typeOfPayment={toggleChecked}>
                     Monthly
                 </S.TypeOfPayment>
-                <S.WrapperToggle onClick={onToggle}>
+                <S.ToggleWrapper onClick={onToggle}>
                     <S.Checkbox
                         type="checkbox"
                         checked={toggleChecked}
                         readOnly
                     />
-                    <S.WrapperPill>
+                    <S.PillWrapper>
                         <S.Pill checked={toggleChecked} />
-                    </S.WrapperPill>
-                </S.WrapperToggle>
+                    </S.PillWrapper>
+                </S.ToggleWrapper>
                 <S.TypeOfPayment typeOfPayment={!toggleChecked}>
                     Yearly
                 </S.TypeOfPayment>
             </S.BillingFrequency>
-            <S.WrapperButtons>
+            <S.ButtonsWrapper>
                 <S.BackButton onClick={() => onActiveStep('info')}>
                     Go Back
                 </S.BackButton>
                 <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
-            </S.WrapperButtons>
+            </S.ButtonsWrapper>
         </S.Wrapper>
     )
 }
