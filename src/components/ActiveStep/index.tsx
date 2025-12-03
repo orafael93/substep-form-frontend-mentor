@@ -3,8 +3,8 @@ import { useSteps } from '@/hooks/useSteps'
 import { SelectPlan } from '@/components/SelectPlan'
 import { FinishingUp } from '@/components/FinishingUp'
 import { PersonalInfo } from '@/components/PersonalInfo'
+import { FinishedForm } from '@/components/FinishedForm'
 import { useCompletedForm } from '@/hooks/useCompletedForm'
-import FinishedForm from '@/components/FinishedForm'
 
 const ActiveStep = () => {
     const { steps } = useSteps()
