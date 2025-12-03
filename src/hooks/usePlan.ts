@@ -1,5 +1,5 @@
-import { Plan } from '../context/GlobalContext'
-import { useGlobalState } from './useGlobalState'
+import { Plan } from '@/context/GlobalContext'
+import { useGlobalState } from '@/hooks/useGlobalState'
 
 export const usePlan = () => {
     const { planModule } = useGlobalState()

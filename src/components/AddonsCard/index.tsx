@@ -1,18 +1,15 @@
 import { MouseEvent, useState } from 'react'
 
-import { AddonsCardType } from '../PersonalInfo/types'
-import { useAddons } from '../../hooks/useAddons'
-import { usePlan } from '../../hooks/usePlan'
+import { usePlan } from '@/hooks/usePlan'
+import { useAddons } from '@/hooks/useAddons'
+import { AddonsCardType } from '@/components/PersonalInfo/types'
 
 import * as S from './styles'
 
-const AddonsCard = ({
-    id,
-    serviceName,
-    serviceDescription,
-    servicePrice,
-    onAddAddons,
-}: AddonsCardType) => {
+export const AddonsCard = (props: AddonsCardType) => {
+    const { id, serviceName, serviceDescription, servicePrice, onAddAddons } =
+        props
+
     const { plan } = usePlan()
     const { addons } = useAddons()
     const addonAlreadyChecked = addons?.find(
@@ -65,5 +62,3 @@ const AddonsCard = ({
         </S.Wrapper>
     )
 }
-
-export default AddonsCard

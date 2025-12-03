@@ -25,7 +25,7 @@ export const StepDescription = styled.p`
     `}
 `
 
-export const WrapperAddonsCards = styled.div`
+export const AddonsCardsWrapper = styled.div`
     margin-top: 40px;
 
     & > label {
@@ -33,7 +33,7 @@ export const WrapperAddonsCards = styled.div`
     }
 `
 
-export const WrapperButtons = styled.div`
+export const ButtonsWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
         justify-content: space-between;

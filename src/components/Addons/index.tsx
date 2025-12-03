@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-import AddonsCard from '@/components/AddonsCard'
 import { useSteps } from '@/hooks/useSteps'
 import { useAddons } from '@/hooks/useAddons'
+import { AddonsCard } from '@/components/AddonsCard'
 import { AddonsType } from '@/context/GlobalContext'
 
 import * as S from './styles'
@@ -39,7 +39,7 @@ export const Addons = () => {
             <S.StepDescription>
                 Add-ons help enhance your gaming experience
             </S.StepDescription>
-            <S.WrapperAddonsCards>
+            <S.AddonsCardsWrapper>
                 <AddonsCard
                     id="online-service"
                     serviceName="Online service"
@@ -61,13 +61,13 @@ export const Addons = () => {
                     servicePrice="2"
                     onAddAddons={onAddAddons}
                 />
-            </S.WrapperAddonsCards>
-            <S.WrapperButtons>
+            </S.AddonsCardsWrapper>
+            <S.ButtonsWrapper>
                 <S.BackButton onClick={() => onActiveStep('plan')}>
                     Go Back
                 </S.BackButton>
                 <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
-            </S.WrapperButtons>
+            </S.ButtonsWrapper>
         </S.Wrapper>
     )
 }
