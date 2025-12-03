@@ -10,4 +10,7 @@ export default defineConfig({
             exportAsDefault: true,
         }),
     ],
+    resolve: {
+        alias: [{ find: '@', replacement: '/src' }],
+    },
 })
