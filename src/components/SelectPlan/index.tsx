@@ -1,47 +1,40 @@
 import { MouseEvent, useState } from 'react'
 
-import ArcadeIcon from '../../assets/icon-arcade.svg'
-import AdvancedIcon from '../../assets/icon-advanced.svg'
-import ProIcon from '../../assets/icon-pro.svg'
-import Plan from '../Plan'
-import { useSteps } from '../../hooks/useSteps'
-import { usePlan } from '../../hooks/usePlan'
-import { PlanTypes } from '../../context/GlobalContext'
+import Plan from '@/components/Plan'
+import ProIcon from '@/assets/icon-pro.svg'
+import ArcadeIcon from '@/assets/icon-arcade.svg'
+import AdvancedIcon from '@/assets/icon-advanced.svg'
+import { useSteps } from '@/hooks/useSteps'
+import { usePlan } from '@/hooks/usePlan'
 
+import * as Types from './types'
 import * as S from './styles'
 
-export type TypeOfPlans = PlanTypes
-
-export type Plans = {
-    name: TypeOfPlans
-    price: number
-    icon?: JSX.Element
-}
-
-const plans: Plans[] = [
-    {
-        icon: <ArcadeIcon />,
-        name: 'arcade',
-        price: 9,
-    },
-    {
-        icon: <AdvancedIcon />,
-        name: 'advanced',
-        price: 12,
-    },
-    {
-        icon: <ProIcon />,
-        name: 'pro',
-        price: 15,
-    },
-]
-
-const Step2 = () => {
+export const SelectPlan = () => {
     const { onUpdatePlan, plan } = usePlan()
     const [toggleChecked, setToggleChecked] = useState(
         plan?.frequency === 'year' || false
     )
-    const [planSelected, setPlanSelected] = useState<Plans>({
+
+    const plans: Types.PlansType[] = [
+        {
+            icon: <ArcadeIcon />,
+            name: 'arcade',
+            price: 9,
+        },
+        {
+            icon: <AdvancedIcon />,
+            name: 'advanced',
+            price: 12,
+        },
+        {
+            icon: <ProIcon />,
+            name: 'pro',
+            price: 15,
+        },
+    ]
+
+    const [selectedPlan, setSelectedPlan] = useState<Types.PlansType>({
         name: plan?.type || plans[0].name,
         price: plan?.price || plans[0].price,
     })
@@ -52,22 +45,22 @@ const Step2 = () => {
         setToggleChecked((oldState) => !oldState)
     }
 
-    const onSelectPlan = (selectedPlan: Plans) => {
-        setPlanSelected(selectedPlan)
+    const onSelectPlan = (selectedPlan: Types.PlansType) => {
+        setSelectedPlan(selectedPlan)
     }
 
     const onGoToNextStep = () => {
         onCompleteStep('plan')
 
         const selectedPlanPrice = plans.find(
-            (plan) => plan.name === planSelected.name
+            (plan) => plan.name === selectedPlan.name
         )
 
         onUpdatePlan({
-            type: planSelected.name,
+            type: selectedPlan.name,
             price: toggleChecked
                 ? (selectedPlanPrice?.price || 0) * 10
-                : planSelected.price,
+                : selectedPlan.price,
             frequency: toggleChecked ? 'year' : 'month',
         })
     }
@@ -82,8 +75,8 @@ const Step2 = () => {
                 {plans.map(({ name, price, icon }) => (
                     <Plan
                         key={name}
-                        planSelected={planSelected?.name === name}
-                        icon={icon!}
+                        selectedPlan={selectedPlan?.name === name}
+                        icon={icon}
                         name={name}
                         price={toggleChecked ? price * 10 : price}
                         typeOfPayment={toggleChecked ? 'yr' : 'mo'}
@@ -118,5 +111,3 @@ const Step2 = () => {
         </S.Wrapper>
     )
 }
-
-export default Step2

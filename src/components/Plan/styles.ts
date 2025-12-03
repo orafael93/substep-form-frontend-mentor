@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 
-type PlanPropTypes = {
-    planSelected: boolean
+type PlanTypes = {
+    selectedPlan: boolean
 }
 
-export const Plan = styled.div<PlanPropTypes>`
-    ${({ theme, planSelected }) => css`
+export const Plan = styled.div<PlanTypes>`
+    ${({ theme, selectedPlan }) => css`
         display: flex;
         flex-direction: column;
         gap: 50px;
@@ -19,10 +19,10 @@ export const Plan = styled.div<PlanPropTypes>`
 
         cursor: pointer;
 
-        border: 1px solid ${planSelected ? theme.purple : theme.borderColor};
+        border: 1px solid ${selectedPlan ? theme.purple : theme.borderColor};
         border-radius: 8px;
 
-        background: ${planSelected ? theme.veryLightGrey : 'transparent'};
+        background: ${selectedPlan ? theme.veryLightGrey : 'transparent'};
 
         &:hover {
             border-color: ${theme.purple};

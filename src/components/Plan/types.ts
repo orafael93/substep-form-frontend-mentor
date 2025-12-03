@@ -1,10 +1,10 @@
-import { TypeOfPlans } from '../Step2'
+import { TypeOfPlansType } from '@/components/SelectPlan/types'
 
 export type PlanPropTypes = {
-    name: TypeOfPlans
+    name: TypeOfPlansType
     price: number
-    icon: JSX.Element
-    planSelected: boolean
+    icon?: JSX.Element
+    selectedPlan: boolean
     typeOfPayment: 'mo' | 'yr'
-    onSelectPlan: (selectedPlan: TypeOfPlans) => void
+    onSelectPlan: (selectedPlan: TypeOfPlansType) => void
 }

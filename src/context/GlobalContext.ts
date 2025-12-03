@@ -2,18 +2,18 @@ import { createContext } from 'react'
 import { StepsTypes } from '../components/Sidebar/types'
 import { StepsActions } from './GlobalProvider'
 
-export type InfoTypes = {
+export type InfoType = {
     name: string
     email: string
     phone: string
 }
 
-export type PlanTypes = 'arcade' | 'advanced' | 'pro'
+export type PlanType = 'arcade' | 'advanced' | 'pro'
 
 export type Frequency = 'month' | 'year'
 
 export type Plan = {
-    type: PlanTypes
+    type: PlanType
     price: number
     frequency: Frequency
 }
@@ -30,7 +30,7 @@ export type Addons = {
 }
 
 export type GlobalContextStates = {
-    infoModule: [InfoTypes | undefined, React.Dispatch<InfoTypes>]
+    infoModule: [InfoType | undefined, React.Dispatch<InfoType>]
     planModule: [Plan | undefined, React.Dispatch<Plan>]
     addonsModule: [Addons[] | undefined, React.Dispatch<Addons[]>]
     stepsModule: [StepsTypes[], React.Dispatch<StepsActions>]

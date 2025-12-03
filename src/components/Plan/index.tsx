@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { PlanPropTypes } from './types'
 
 import * as S from './styles'
@@ -8,13 +6,13 @@ const Plan = ({
     name,
     price,
     icon,
-    planSelected,
+    selectedPlan,
     typeOfPayment,
     onSelectPlan,
 }: PlanPropTypes) => {
     return (
-        <S.Plan planSelected={planSelected} onClick={() => onSelectPlan(name)}>
-            <S.WrapperPlanIcon>{icon}</S.WrapperPlanIcon>
+        <S.Plan selectedPlan={selectedPlan} onClick={() => onSelectPlan(name)}>
+            {icon && <S.WrapperPlanIcon>{icon}</S.WrapperPlanIcon>}
             <S.PlanDescription>
                 <S.NamePlan>{name}</S.NamePlan>
                 <S.PricePlan>
