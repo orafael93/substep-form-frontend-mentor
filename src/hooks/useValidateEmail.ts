@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 import { maskToValidateEmail } from '@/utils/masks'
 
 export type InputErrorType = {
@@ -12,11 +13,15 @@ export type OnValidateEmailType = {
 }
 
 export const useValidateEmail = () => {
-    const [error, setError] = useState<InputErrorType>(<InputErrorType>{})
-    const [email, setEmail] = useState('')
-    const [canInitValidation, setCanInitValidation] = useState(false)
+    const { info } = usePersonalInfo()
 
-    const onStartValidationOnBlur = () => {
+    const [error, setError] = useState<InputErrorType>(<InputErrorType>{})
+    const [email, setEmail] = useState(info?.email || '')
+    const [canInitValidation, setCanInitValidation] = useState(
+        Boolean(info?.email)
+    )
+
+    const onStartValidateEmailOnBlur = () => {
         if (!canInitValidation) {
             setCanInitValidation(true)
         }
@@ -70,6 +75,6 @@ export const useValidateEmail = () => {
         emailError: error,
         emailState: handleEmailInputState,
         onUpdateEmail,
-        onStartValidationOnBlur,
+        onStartValidateEmailOnBlur,
     }
 }
