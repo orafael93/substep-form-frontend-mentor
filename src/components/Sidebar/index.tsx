@@ -16,7 +16,14 @@ export const Sidebar = () => {
     return (
         <S.Wrapper>
             {steps.map(({ id, name, content, state, slug }) => (
-                <S.Step key={name} onClick={() => handleActiveStep(id)}>
+                <S.Step
+                    key={name}
+                    onClick={() => {
+                        if (state === 'disabled') return
+
+                        handleActiveStep(id)
+                    }}
+                >
                     <S.WrapperStepNumber state={state}>
                         <S.Number>{slug}</S.Number>
                     </S.WrapperStepNumber>

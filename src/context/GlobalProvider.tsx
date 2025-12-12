@@ -8,6 +8,7 @@ import {
 } from '@/context/GlobalContext'
 import { initDefaultSteps } from '@/utils/initDefaultSteps'
 import { StepNameType, StepsType } from '@/components/Sidebar/types'
+import { handleNavigation } from '@/utils/handleNavigation'
 
 type GlobalProviderType = {
     children: ReactNode
@@ -55,23 +56,30 @@ const completeStep = (
 }
 
 const activeStep = (steps: StepsType[], stepNameToActive: StepNameType) => {
-    const nextStepToActive = steps.find((step) => step.id === stepNameToActive)
-
-    if (nextStepToActive?.state === 'disabled') {
-        return steps
-    }
+    const { completedSteps } = handleNavigation()
 
     const mappedSteps: StepsType[] = steps.map((step) => {
+        const currentStep = steps.find(
+            (currentStep) => currentStep.state === 'active'
+        )
+
         if (step.id === stepNameToActive) {
             return { ...step, state: 'active' }
         }
 
-        if (step.state === 'active') {
+        if (step.state === 'active' && !completedSteps.has(currentStep?.id)) {
             return { ...step, state: 'disabled' }
+        }
+
+        if (completedSteps.has(step?.id)) {
+            return { ...step, state: 'completed' }
         }
 
         return step
     })
+
+    console.clear()
+    console.table(mappedSteps)
 
     return mappedSteps
 }
