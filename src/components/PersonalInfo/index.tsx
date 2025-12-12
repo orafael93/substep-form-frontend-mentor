@@ -1,39 +1,48 @@
-import { useState } from 'react'
-
 import { useSteps } from '@/hooks/useSteps'
-import { usePersonalInfo } from '@/hooks/usePersonalInfo'
-import { handlePersonalInfo } from '@/utils/handlePersonalInfo'
-import { useValidateEmail } from '@/hooks/useValidateEmail'
 import { StepsWrapper } from '@/components/StepsWrapper'
+import { usePersonalInfo } from '@/hooks/usePersonalInfo'
+import { useValidateName } from '@/hooks/useValidateName'
+import { useValidateEmail } from '@/hooks/useValidateEmail'
+import { useValidateCellphone } from '@/hooks/useValidateCellphone'
 
 import * as S from './styles'
 
 export const PersonalInfo = () => {
-    const [canValidateFields, setCanValidateFields] = useState(false)
     const { onCompleteStep } = useSteps()
-    const { info } = usePersonalInfo()
-    const { email, emailError, onUpdateEmail, onStartValidationOnBlur } =
-        useValidateEmail()
+    const { onUpdatePersonalInfo } = usePersonalInfo()
+    const {
+        name,
+        nameError,
+        nameState,
+        onUpdateName,
+        onStartValidateNameOnBlur,
+    } = useValidateName()
+    const {
+        email,
+        emailError,
+        emailState,
+        onUpdateEmail,
+        onStartValidateEmailOnBlur,
+    } = useValidateEmail()
+    const {
+        cellphone,
+        cellphoneState,
+        cellphoneError,
+        onUpdateCellphone,
+        onStartValidateCellphoneOnBlur,
+    } = useValidateCellphone()
 
-    const [personalInfo, setPersonalInfo] = useState({
-        name: info?.name || '',
-        phone: info?.phone || '',
-    })
-
-    const unfilledFields = handlePersonalInfo(personalInfo)
-
-    const inputNameHasError =
-        canValidateFields && unfilledFields.includes('name')
-
-    const inputPhoneHasError =
-        canValidateFields && unfilledFields.includes('phone')
+    const canGoToNextStep = [nameState, emailState, cellphoneState].every(
+        (field) => field === 'success'
+    )
 
     const onGoToNextStep = () => {
-        setCanValidateFields(true)
-
-        if (!unfilledFields.length) {
-            onCompleteStep('info')
-        }
+        onCompleteStep('info')
+        onUpdatePersonalInfo({
+            name,
+            email,
+            cellphone,
+        })
     }
 
     return (
@@ -45,23 +54,25 @@ export const PersonalInfo = () => {
             <S.InputWrapper>
                 <S.FieldLabelWrapper>
                     <S.Label htmlFor="name">Name</S.Label>
-                    {inputNameHasError && (
+                    {nameError.hasError && (
                         <S.RequiredFieldText>
-                            This field is required.
+                            {nameError.message}
                         </S.RequiredFieldText>
                     )}
                 </S.FieldLabelWrapper>
                 <S.Input
                     id="name"
                     placeholder="e.g Stephen King"
-                    value={personalInfo.name}
-                    error={inputNameHasError}
-                    onChange={(e) =>
-                        setPersonalInfo({
-                            ...personalInfo,
-                            name: e.target.value,
-                        })
-                    }
+                    value={name}
+                    error={nameError.hasError || nameState === 'error'}
+                    onChange={(e) => {
+                        onUpdateName(e.target.value)
+                    }}
+                    onBlur={() => {
+                        if (name.length < 2) {
+                            onStartValidateNameOnBlur()
+                        }
+                    }}
                     autoComplete="off"
                 />
             </S.InputWrapper>
@@ -79,12 +90,10 @@ export const PersonalInfo = () => {
                     id="name"
                     placeholder="e.g stephenking@lorem.com"
                     value={email}
-                    error={emailError.hasError}
+                    error={emailError.hasError || emailState === 'error'}
                     onChange={(e) => onUpdateEmail(e.target.value)}
                     onBlur={() => {
-                        if (email.length) {
-                            onStartValidationOnBlur()
-                        }
+                        onStartValidateEmailOnBlur()
                     }}
                     autoComplete="off"
                 />
@@ -93,28 +102,30 @@ export const PersonalInfo = () => {
                 <S.FieldLabelWrapper>
                     <S.Label htmlFor="name">Phone number</S.Label>
 
-                    {inputPhoneHasError && (
+                    {cellphoneError.hasError && (
                         <S.RequiredFieldText>
-                            This field is required.
+                            {cellphoneError.message}
                         </S.RequiredFieldText>
                     )}
                 </S.FieldLabelWrapper>
                 <S.Input
-                    id="name"
+                    id="cellphone"
                     placeholder="e.g +1 234 567 890"
-                    value={personalInfo.phone}
-                    error={inputPhoneHasError}
-                    onChange={(e) =>
-                        setPersonalInfo({
-                            ...personalInfo,
-                            phone: e.target.value,
-                        })
+                    value={cellphone}
+                    error={
+                        cellphoneError.hasError || cellphoneState === 'error'
                     }
+                    onChange={(e) => onUpdateCellphone(e.target.value)}
+                    onBlur={() => {
+                        onStartValidateCellphoneOnBlur()
+                    }}
                     autoComplete="off"
                 />
             </S.InputWrapper>
             <S.NextStepWrapper>
-                <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
+                <S.Button disabled={!canGoToNextStep} onClick={onGoToNextStep}>
+                    Next Step
+                </S.Button>
             </S.NextStepWrapper>
         </StepsWrapper>
     )
