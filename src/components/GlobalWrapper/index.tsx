@@ -55,7 +55,6 @@ export const ContentWrapper = styled.div`
             transform: translateY(-50px);
             height: fit-content;
 
-            padding: 15px;
             margin: 0 auto;
 
             background: ${theme.white};

@@ -25,6 +25,10 @@ export const ThankYouText = styled.p`
         color: ${theme.denim};
 
         margin-top: 32px;
+
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            font-size: 24px;
+        }
     `}
 `
 

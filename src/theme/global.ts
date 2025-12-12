@@ -5,6 +5,10 @@ import {
     GlobalStyleComponent,
 } from 'styled-components'
 
+import ubuntu300 from '../../public/fonts/ubuntu-300.woff2'
+import ubuntu500 from '../../public/fonts/ubuntu-500.woff2'
+import ubuntu700 from '../../public/fonts/ubuntu-700.woff2'
+
 export const GlobalStyles: GlobalStyleComponent<
     {},
     DefaultTheme
@@ -22,6 +26,33 @@ export const GlobalStyles: GlobalStyleComponent<
         box-sizing: inherit;
       }
   }
+
+  
+    @font-face {
+      font-display: swap; 
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 300;
+      src: url(${ubuntu300}) format('woff2');
+    }
+  
+    
+    @font-face {
+      font-display: swap; 
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 500;
+      src: url(${ubuntu500}) format('woff2');
+    }
+    
+    
+    @font-face {
+      font-display: swap; 
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 700;
+      src: url(${ubuntu700}) format('woff2');
+    }
 
   ${({ theme }) => css`
       html,

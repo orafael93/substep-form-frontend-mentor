@@ -12,6 +12,10 @@ export const StepTitle = styled.h2`
         color: ${theme.denim};
         font-size: 32px;
         font-weight: bold;
+
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            font-size: 24px;
+        }
     `}
 `
 
@@ -30,6 +34,10 @@ export const Label = styled.label`
         font-size: 14px;
         font-weight: 400;
         color: ${theme.denim};
+
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            font-size: 12px;
+        }
     `}
 `
 
@@ -113,6 +121,10 @@ export const RequiredFieldText = styled.p`
     ${({ theme }) => css`
         color: ${theme.redErrors};
         font-size: 14px;
+
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            font-size: 10px;
+        }
     `}
 `
 
