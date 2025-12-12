@@ -41,13 +41,17 @@ export const SelectPlan = () => {
     })
     const { onCompleteStep, onActiveStep } = useSteps()
 
-    const onToggle = (e: MouseEvent) => {
-        e.preventDefault()
+    const onToggle = () => {
         setToggleChecked((oldState) => !oldState)
     }
 
     const onSelectPlan = (selectedPlan: Types.PlansType) => {
         setSelectedPlan(selectedPlan)
+    }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        onGoToNextStep()
     }
 
     const onGoToNextStep = () => {
@@ -70,45 +74,70 @@ export const SelectPlan = () => {
         <StepsWrapper>
             <S.StepTitle>Select your plan</S.StepTitle>
             <S.StepDescription>
-                You have the option of monthly or yearly billing
+                You have the option of monthly or yearly billing.
             </S.StepDescription>
-            <S.PlanWrapper>
-                {plans.map(({ name, price, icon }) => (
-                    <Plan
-                        key={name}
-                        selectedPlan={selectedPlan?.name === name}
-                        icon={icon}
-                        name={name}
-                        price={toggleChecked ? price * 10 : price}
-                        typeOfPayment={toggleChecked ? 'yr' : 'mo'}
-                        onSelectPlan={() => onSelectPlan({ name, price })}
-                    />
-                ))}
-            </S.PlanWrapper>
-            <S.BillingFrequency>
-                <S.TypeOfPayment typeOfPayment={toggleChecked}>
-                    Monthly
-                </S.TypeOfPayment>
-                <S.ToggleWrapper onClick={onToggle}>
-                    <S.Checkbox
-                        type="checkbox"
-                        checked={toggleChecked}
-                        readOnly
-                    />
-                    <S.PillWrapper>
-                        <S.Pill checked={toggleChecked} />
-                    </S.PillWrapper>
-                </S.ToggleWrapper>
-                <S.TypeOfPayment typeOfPayment={!toggleChecked}>
-                    Yearly
-                </S.TypeOfPayment>
-            </S.BillingFrequency>
-            <S.ButtonsWrapper>
-                <S.BackButton onClick={() => onActiveStep('info')}>
-                    Go Back
-                </S.BackButton>
-                <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
-            </S.ButtonsWrapper>
+            <S.Form onSubmit={handleSubmit} aria-label="Plan selection form">
+                <S.PlanWrapper role="radiogroup" aria-label="Choose your plan">
+                    {plans.map(({ name, price, icon }) => (
+                        <Plan
+                            key={name}
+                            selectedPlan={selectedPlan?.name === name}
+                            icon={icon}
+                            name={name}
+                            price={toggleChecked ? price * 10 : price}
+                            typeOfPayment={toggleChecked ? 'yr' : 'mo'}
+                            onSelectPlan={() => onSelectPlan({ name, price })}
+                        />
+                    ))}
+                </S.PlanWrapper>
+                <S.BillingFrequency role="group" aria-label="Billing frequency selector">
+                    <S.TypeOfPayment 
+                        as="label" 
+                        htmlFor="billing-toggle"
+                        typeOfPayment={toggleChecked}
+                        aria-hidden="true"
+                    >
+                        Monthly
+                    </S.TypeOfPayment>
+                    <S.ToggleWrapper htmlFor="billing-toggle">
+                        <S.Checkbox
+                            id="billing-toggle"
+                            type="checkbox"
+                            checked={toggleChecked}
+                            onChange={onToggle}
+                            role="switch"
+                            aria-checked={toggleChecked}
+                            aria-label="Toggle between monthly and yearly billing"
+                        />
+                        <S.PillWrapper aria-hidden="true">
+                            <S.Pill checked={toggleChecked} />
+                        </S.PillWrapper>
+                    </S.ToggleWrapper>
+                    <S.TypeOfPayment 
+                        as="label" 
+                        htmlFor="billing-toggle"
+                        typeOfPayment={!toggleChecked}
+                        aria-hidden="true"
+                    >
+                        Yearly
+                    </S.TypeOfPayment>
+                </S.BillingFrequency>
+                <S.ButtonsWrapper>
+                    <S.BackButton 
+                        type="button"
+                        onClick={() => onActiveStep('info')}
+                        aria-label="Go back to personal information step"
+                    >
+                        Go Back
+                    </S.BackButton>
+                    <S.Button 
+                        type="submit"
+                        aria-label="Proceed to next step"
+                    >
+                        Next Step
+                    </S.Button>
+                </S.ButtonsWrapper>
+            </S.Form>
         </StepsWrapper>
     )
 }

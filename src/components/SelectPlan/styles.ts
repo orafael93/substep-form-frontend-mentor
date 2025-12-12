@@ -26,6 +26,11 @@ export const StepDescription = styled.p`
     `}
 `
 
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`
+
 export const PlanWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
