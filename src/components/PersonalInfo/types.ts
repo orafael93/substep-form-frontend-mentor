@@ -6,4 +6,5 @@ export type AddonsCardType = {
     serviceDescription: string
     servicePrice: string
     onAddAddons: (params: AddonsType) => void
+    isChecked?: boolean
 }

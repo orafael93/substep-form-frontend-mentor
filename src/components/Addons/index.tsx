@@ -13,6 +13,11 @@ export const Addons = () => {
     const [addonsAdded, setAddonsAdded] = useState<AddonsType[]>(addons || [])
     const { onCompleteStep, onActiveStep } = useSteps()
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        onGoToNextStep()
+    }
+
     const onGoToNextStep = () => {
         onCompleteStep('addons')
         onUpdateAddons(addonsAdded)
@@ -38,37 +43,51 @@ export const Addons = () => {
         <StepsWrapper>
             <S.StepTitle>Pick add-ons</S.StepTitle>
             <S.StepDescription>
-                Add-ons help enhance your gaming experience
+                Add-ons help enhance your gaming experience.
             </S.StepDescription>
-            <S.AddonsCardsWrapper>
-                <AddonsCard
-                    id="online-service"
-                    serviceName="Online service"
-                    serviceDescription="Access to multiplayer games"
-                    servicePrice="1"
-                    onAddAddons={onAddAddons}
-                />
-                <AddonsCard
-                    id="larger-storage"
-                    serviceName="Larger storage"
-                    serviceDescription="Extra 1TB of cloud save"
-                    servicePrice="2"
-                    onAddAddons={onAddAddons}
-                />
-                <AddonsCard
-                    id="customizable-profile"
-                    serviceName="Customizable profile"
-                    serviceDescription="Custom theme on your profile"
-                    servicePrice="2"
-                    onAddAddons={onAddAddons}
-                />
-            </S.AddonsCardsWrapper>
-            <S.ButtonsWrapper>
-                <S.BackButton onClick={() => onActiveStep('plan')}>
-                    Go Back
-                </S.BackButton>
-                <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
-            </S.ButtonsWrapper>
+            <S.Form onSubmit={handleSubmit} aria-label="Add-ons selection form">
+                <S.AddonsCardsWrapper role="group" aria-label="Available add-ons">
+                    <AddonsCard
+                        id="online-service"
+                        serviceName="Online service"
+                        serviceDescription="Access to multiplayer games"
+                        servicePrice="1"
+                        onAddAddons={onAddAddons}
+                        isChecked={!!addonsAdded.find(a => a.type === 'online-service')}
+                    />
+                    <AddonsCard
+                        id="larger-storage"
+                        serviceName="Larger storage"
+                        serviceDescription="Extra 1TB of cloud save"
+                        servicePrice="2"
+                        onAddAddons={onAddAddons}
+                        isChecked={!!addonsAdded.find(a => a.type === 'larger-storage')}
+                    />
+                    <AddonsCard
+                        id="customizable-profile"
+                        serviceName="Customizable profile"
+                        serviceDescription="Custom theme on your profile"
+                        servicePrice="2"
+                        onAddAddons={onAddAddons}
+                        isChecked={!!addonsAdded.find(a => a.type === 'customizable-profile')}
+                    />
+                </S.AddonsCardsWrapper>
+                <S.ButtonsWrapper>
+                    <S.BackButton 
+                        type="button"
+                        onClick={() => onActiveStep('plan')}
+                        aria-label="Go back to plan selection step"
+                    >
+                        Go Back
+                    </S.BackButton>
+                    <S.Button 
+                        type="submit"
+                        aria-label="Proceed to next step"
+                    >
+                        Next Step
+                    </S.Button>
+                </S.ButtonsWrapper>
+            </S.Form>
         </StepsWrapper>
     )
 }

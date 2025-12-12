@@ -27,6 +27,11 @@ export const StepDescription = styled.p`
     `}
 `
 
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`
+
 export const AddonsCardsWrapper = styled.div`
     margin-top: 40px;
 
@@ -63,7 +68,7 @@ export const BackButton = styled.button`
     `}
 `
 
-export const Button = styled.div`
+export const Button = styled.button`
     ${({ theme }) => css`
         outline: none;
         border: none;
@@ -79,6 +84,7 @@ export const Button = styled.div`
 
         font-weight: 500;
         font-size: 16px;
+        font-family: 'Ubuntu';
 
         &:hover {
             background: #164a8a;
