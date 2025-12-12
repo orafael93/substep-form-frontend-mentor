@@ -29,8 +29,6 @@ const activeNextStep = (steps: StepsType[], stepIndexToActive: number) => {
 
     if (!isLastStep) {
         steps[stepIndexToActive].state = 'active'
-    } else {
-        console.log('Último step')
     }
 
     return steps
@@ -77,9 +75,6 @@ const activeStep = (steps: StepsType[], stepNameToActive: StepNameType) => {
 
         return step
     })
-
-    console.clear()
-    console.table(mappedSteps)
 
     return mappedSteps
 }
