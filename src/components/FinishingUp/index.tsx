@@ -54,52 +54,71 @@ export const FinishingUp = () => {
         <StepsWrapper>
             <S.StepTitle>Finishing up</S.StepTitle>
             <S.StepDescription>
-                Double-check everything looks OK before confirming
+                Double-check everything looks OK before confirming.
             </S.StepDescription>
 
-            <S.SelectedContentWrapper>
+            <S.SelectedContentWrapper 
+                as="section" 
+                role="region" 
+                aria-label="Order summary"
+            >
                 <S.StepContentWrapper>
                     <S.SelectedNameContentWrapper>
                         <S.Name>
                             {mappedPlan.name} ({mappedPlan.frequencyLongText})
                         </S.Name>
-                        <S.Price onClick={() => onActiveStep('plan')}>
+                        <S.ChangeButton 
+                            onClick={() => onActiveStep('plan')}
+                            aria-label="Change plan selection"
+                        >
                             Change
-                        </S.Price>
+                        </S.ChangeButton>
                     </S.SelectedNameContentWrapper>
                     <S.SelectedPriceWrapper>
-                        <S.SelectedPrice>
+                        <S.SelectedPrice aria-label={`Plan price: $${mappedPlan.price} per ${mappedPlan.frequencyShorText}`}>
                             ${mappedPlan.price}/{mappedPlan.frequencyShorText}
                         </S.SelectedPrice>
                     </S.SelectedPriceWrapper>
                 </S.StepContentWrapper>
-                <S.AddonsWrapper>
-                    {mappedAddons?.map(({ type, price, frequency }) => (
-                        <S.AddonWrapper key={type}>
-                            <S.AddonNameService>{type}</S.AddonNameService>
-                            <S.AddonPrice>
-                                +{price}/{frequency}
-                            </S.AddonPrice>
-                        </S.AddonWrapper>
-                    ))}
-                </S.AddonsWrapper>
+                {mappedAddons && mappedAddons.length > 0 && (
+                    <S.AddonsWrapper as="ul" role="list" aria-label="Selected add-ons">
+                        {mappedAddons.map(({ type, price, frequency }) => (
+                            <S.AddonWrapper as="li" key={type}>
+                                <S.AddonNameService>{type}</S.AddonNameService>
+                                <S.AddonPrice aria-label={`Add-on price: $${price} per ${frequency}`}>
+                                    +${price}/{frequency}
+                                </S.AddonPrice>
+                            </S.AddonWrapper>
+                        ))}
+                    </S.AddonsWrapper>
+                )}
             </S.SelectedContentWrapper>
 
-            <S.TotalPriceWrapper>
+            <S.TotalPriceWrapper role="status" aria-live="polite">
                 <S.PriceText>
                     Total ({totalPriceContent.totalTextLong})
                 </S.PriceText>
-                <S.PriceValue>
+                <S.PriceValue aria-label={`Total price: $${totalPriceContent.price} per ${totalPriceContent.totalTextShort}`}>
                     ${totalPriceContent.price}/
                     {totalPriceContent.totalTextShort}
                 </S.PriceValue>
             </S.TotalPriceWrapper>
 
             <S.ButtonsWrapper>
-                <S.BackButton onClick={() => onActiveStep('addons')}>
+                <S.BackButton 
+                    type="button"
+                    onClick={() => onActiveStep('addons')}
+                    aria-label="Go back to add-ons selection step"
+                >
                     Go Back
                 </S.BackButton>
-                <S.Button onClick={onCompleteForm}>Confirm</S.Button>
+                <S.Button 
+                    type="button"
+                    onClick={onCompleteForm}
+                    aria-label="Confirm and complete order"
+                >
+                    Confirm
+                </S.Button>
             </S.ButtonsWrapper>
         </StepsWrapper>
     )

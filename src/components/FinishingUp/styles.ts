@@ -48,12 +48,16 @@ export const Name = styled.p`
     `}
 `
 
-export const Price = styled.span`
+export const ChangeButton = styled.button`
     ${({ theme }) => css`
         display: inline-block;
+        background: transparent;
+        border: none;
+        padding: 0;
 
         font-weight: 400;
         font-size: 14px;
+        font-family: 'Ubuntu';
 
         color: ${theme.grey};
 
@@ -82,6 +86,8 @@ export const SelectedPrice = styled.span`
 
 export const AddonsWrapper = styled.div`
     margin-top: 16px;
+    padding: 0;
+    list-style: none;
 `
 
 export const AddonWrapper = styled.div`
@@ -160,14 +166,19 @@ export const BackButton = styled.button`
     `}
 `
 
-export const Button = styled.div`
+export const Button = styled.button`
     ${({ theme }) => css`
         background: ${theme.purple};
+        border: none;
+        outline: none;
 
         padding: 15px 25px;
 
         color: ${theme.white};
         border-radius: 8px;
+        font-family: 'Ubuntu';
+        font-size: 16px;
+        font-weight: 500;
 
         transition: 0.2s;
 
