@@ -75,8 +75,12 @@ export const NextStepWrapper = styled.div`
     `}
 `
 
-export const Button = styled.button`
-    ${({ theme }) => css`
+type ButtonType = {
+    disabled: boolean
+}
+
+export const Button = styled.button<ButtonType>`
+    ${({ theme, disabled }) => css`
         background: #164a8a;
         border: none;
 
@@ -92,10 +96,16 @@ export const Button = styled.button`
         font-size: 16px;
         font-weight: 500;
 
-        &:hover {
+        &:hover:not(:disabled) {
             background: ${theme.denim};
             cursor: pointer;
         }
+
+        ${disabled &&
+        css`
+            background: ${theme.grey};
+            cursor: not-allowed;
+        `}
     `}
 `
 
