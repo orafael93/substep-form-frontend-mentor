@@ -3,6 +3,10 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "author": {
+        "name": "Rafael",
+        "email": "orafaeldev@gmail.com"
+    },
     "scripts": {
         "dev": "vite --host --open",
         "build": "tsc && vite build",
