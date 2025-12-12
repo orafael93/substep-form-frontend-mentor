@@ -6,7 +6,7 @@ import { StepsActions } from '@/context/GlobalProvider'
 export type InfoType = {
     name: string
     email: string
-    phone: string
+    cellphone: string
 }
 
 export type PlanType = 'arcade' | 'advanced' | 'pro'
