@@ -3,8 +3,13 @@ import ThankYouIcon from '@/assets/icon-thank-you.svg'
 import * as S from './styles'
 
 export const FinishedForm = () => (
-    <S.Wrapper>
-        <ThankYouIcon />
+    <S.Wrapper 
+        as="section" 
+        role="status" 
+        aria-live="polite"
+        aria-label="Form submission successful"
+    >
+        <ThankYouIcon aria-label="Success" />
         <S.ThankYouText>Thank you!</S.ThankYouText>
         <S.ThankYouMessage>
             Thanks for confirming your subscription! We hope you have fun using

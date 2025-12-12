@@ -108,12 +108,20 @@ export const BackButton = styled.button`
     `}
 `
 
-export const Button = styled.div`
+export const Button = styled.button`
     ${({ theme }) => css`
-        background: #164a8a;
+        background: #164a8a;\n        border: none;
+        outline: none;
+        
         padding: 15px 25px;
+        
         color: ${theme.white};
         border-radius: 8px;
+        
+        font-family: 'Ubuntu';
+        font-size: 16px;
+        font-weight: 500;
+        
         transition: 0.2s;
 
         &:hover {
@@ -122,3 +130,4 @@ export const Button = styled.div`
         }
     `}
 `
+

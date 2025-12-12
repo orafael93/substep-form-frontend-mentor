@@ -36,11 +36,51 @@ export const Wrapper = styled.div`
     `}
 `
 
-export const Step = styled.div`
+export const StepsList = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    ${({ theme }) => css`
+        @media (max-width: ${theme.breakpoints.tablet}px) {
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+        }
+    `}
+`
+
+export const StepItem = styled.div`
+    list-style: none;
+`
+
+export const Step = styled.button`
     display: flex;
     gap: 1rem;
-
+    align-items: center;
+    
+    background: transparent;
+    border: none;
+    padding: 0;
+    
+    width: 100%;
+    text-align: left;
+    
     cursor: pointer;
+    
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
+    
+    &:focus-visible {
+        outline: 2px solid white;
+        outline-offset: 4px;
+        border-radius: 4px;
+    }
 `
 
 type WrapperStepNumberTypes = {

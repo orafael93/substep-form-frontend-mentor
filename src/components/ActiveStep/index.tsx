@@ -27,5 +27,9 @@ export const ActiveStep = () => {
 
     const ActiveComponent = handleActiveComponent()
 
-    return completedForm ? <FinishedForm /> : <ActiveComponent />
+    return (
+        <div role="main" aria-live="polite" aria-label="Form content">
+            {completedForm ? <FinishedForm /> : <ActiveComponent />}
+        </div>
+    )
 }

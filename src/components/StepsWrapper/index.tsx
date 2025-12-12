@@ -7,5 +7,7 @@ type StepsWrapperType = {
 }
 
 export const StepsWrapper = (props: StepsWrapperType) => (
-    <S.StepWrapper>{props.children}</S.StepWrapper>
+    <S.StepWrapper role="region" aria-label="Form step content">
+        {props.children}
+    </S.StepWrapper>
 )
