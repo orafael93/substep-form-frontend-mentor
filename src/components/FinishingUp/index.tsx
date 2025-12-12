@@ -2,6 +2,7 @@ import { usePlan } from '@/hooks/usePlan'
 import { useSteps } from '@/hooks/useSteps'
 import { useAddons } from '@/hooks/useAddons'
 import { useCompletedForm } from '@/hooks/useCompletedForm'
+import { StepsWrapper } from '@/components/StepsWrapper'
 
 import * as S from './styles'
 
@@ -50,7 +51,7 @@ export const FinishingUp = () => {
     }
 
     return (
-        <S.Wrapper>
+        <StepsWrapper>
             <S.StepTitle>Finishing up</S.StepTitle>
             <S.StepDescription>
                 Double-check everything looks OK before confirming
@@ -100,6 +101,6 @@ export const FinishingUp = () => {
                 </S.BackButton>
                 <S.Button onClick={onCompleteForm}>Confirm</S.Button>
             </S.ButtonsWrapper>
-        </S.Wrapper>
+        </StepsWrapper>
     )
 }

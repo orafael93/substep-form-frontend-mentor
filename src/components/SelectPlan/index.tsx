@@ -4,8 +4,9 @@ import ProIcon from '@/assets/icon-pro.svg'
 import ArcadeIcon from '@/assets/icon-arcade.svg'
 import AdvancedIcon from '@/assets/icon-advanced.svg'
 import { Plan } from '@/components/Plan'
-import { useSteps } from '@/hooks/useSteps'
 import { usePlan } from '@/hooks/usePlan'
+import { useSteps } from '@/hooks/useSteps'
+import { StepsWrapper } from '@/components/StepsWrapper'
 
 import * as Types from './types'
 import * as S from './styles'
@@ -66,7 +67,7 @@ export const SelectPlan = () => {
     }
 
     return (
-        <S.Wrapper>
+        <StepsWrapper>
             <S.StepTitle>Select your plan</S.StepTitle>
             <S.StepDescription>
                 You have the option of monthly or yearly billing
@@ -108,6 +109,6 @@ export const SelectPlan = () => {
                 </S.BackButton>
                 <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
             </S.ButtonsWrapper>
-        </S.Wrapper>
+        </StepsWrapper>
     )
 }

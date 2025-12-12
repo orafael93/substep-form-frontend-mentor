@@ -1,9 +1,5 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div`
-    padding: 0 30px;
-`
-
 export const InputWrapper = styled.div`
     display: flex;
     flex-direction: column;

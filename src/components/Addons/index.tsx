@@ -4,6 +4,7 @@ import { useSteps } from '@/hooks/useSteps'
 import { useAddons } from '@/hooks/useAddons'
 import { AddonsCard } from '@/components/AddonsCard'
 import { AddonsType } from '@/context/GlobalContext'
+import { StepsWrapper } from '@/components/StepsWrapper'
 
 import * as S from './styles'
 
@@ -34,7 +35,7 @@ export const Addons = () => {
     }
 
     return (
-        <S.Wrapper>
+        <StepsWrapper>
             <S.StepTitle>Pick add-ons</S.StepTitle>
             <S.StepDescription>
                 Add-ons help enhance your gaming experience
@@ -68,6 +69,6 @@ export const Addons = () => {
                 </S.BackButton>
                 <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
             </S.ButtonsWrapper>
-        </S.Wrapper>
+        </StepsWrapper>
     )
 }

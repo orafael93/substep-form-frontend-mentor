@@ -1,8 +1,5 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div`
-    padding: 0 30px;
-`
 export const StepTitle = styled.h2`
     ${({ theme }) => css`
         color: ${theme.denim};

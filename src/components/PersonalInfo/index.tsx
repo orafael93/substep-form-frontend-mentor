@@ -4,6 +4,7 @@ import { useSteps } from '@/hooks/useSteps'
 import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 import { handlePersonalInfo } from '@/utils/handlePersonalInfo'
 import { useValidateEmail } from '@/hooks/useValidateEmail'
+import { StepsWrapper } from '@/components/StepsWrapper'
 
 import * as S from './styles'
 
@@ -36,7 +37,7 @@ export const PersonalInfo = () => {
     }
 
     return (
-        <S.Wrapper>
+        <StepsWrapper>
             <S.StepTitle>Personal info</S.StepTitle>
             <S.StepDescription>
                 Prease provide your name, email adress, and phone number
@@ -115,6 +116,6 @@ export const PersonalInfo = () => {
             <S.NextStepWrapper>
                 <S.Button onClick={onGoToNextStep}>Next Step</S.Button>
             </S.NextStepWrapper>
-        </S.Wrapper>
+        </StepsWrapper>
     )
 }

@@ -51,8 +51,6 @@ export const ContentWrapper = styled.div`
         justify-content: center;
         align-items: flex-start;
 
-        padding: 30px 0;
-
         @media (max-width: ${theme.breakpoints.tablet}px) {
             transform: translateY(-50px);
             height: fit-content;

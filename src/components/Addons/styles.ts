@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
-    padding: 0 30px;
+    padding: 30px 10%;
+
+    width: 100%;
 `
 
 export const StepTitle = styled.h2`
