@@ -3,17 +3,19 @@ import { useState } from 'react'
 import { useSteps } from '@/hooks/useSteps'
 import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 import { handlePersonalInfo } from '@/utils/handlePersonalInfo'
+import { useValidateEmail } from '@/hooks/useValidateEmail'
 
 import * as S from './styles'
 
 export const PersonalInfo = () => {
     const [canValidateFields, setCanValidateFields] = useState(false)
     const { onCompleteStep } = useSteps()
-    const { onUpdatePersonalInfo, info } = usePersonalInfo()
+    const { info } = usePersonalInfo()
+    const { email, emailError, onUpdateEmail, onStartValidationOnBlur } =
+        useValidateEmail()
 
     const [personalInfo, setPersonalInfo] = useState({
         name: info?.name || '',
-        email: info?.email || '',
         phone: info?.phone || '',
     })
 
@@ -21,8 +23,7 @@ export const PersonalInfo = () => {
 
     const inputNameHasError =
         canValidateFields && unfilledFields.includes('name')
-    const inputEmailHasError =
-        canValidateFields && unfilledFields.includes('email')
+
     const inputPhoneHasError =
         canValidateFields && unfilledFields.includes('phone')
 
@@ -30,7 +31,6 @@ export const PersonalInfo = () => {
         setCanValidateFields(true)
 
         if (!unfilledFields.length) {
-            onUpdatePersonalInfo(personalInfo)
             onCompleteStep('info')
         }
     }
@@ -67,9 +67,9 @@ export const PersonalInfo = () => {
             <S.InputWrapper>
                 <S.FieldLabelWrapper>
                     <S.Label htmlFor="name">Email Address</S.Label>
-                    {inputEmailHasError && (
+                    {emailError.hasError && (
                         <S.RequiredFieldText>
-                            This field is required.
+                            {emailError.message}
                         </S.RequiredFieldText>
                     )}
                 </S.FieldLabelWrapper>
@@ -77,14 +77,14 @@ export const PersonalInfo = () => {
                     type="email"
                     id="name"
                     placeholder="e.g stephenking@lorem.com"
-                    value={personalInfo.email}
-                    error={inputEmailHasError}
-                    onChange={(e) =>
-                        setPersonalInfo({
-                            ...personalInfo,
-                            email: e.target.value,
-                        })
-                    }
+                    value={email}
+                    error={emailError.hasError}
+                    onChange={(e) => onUpdateEmail(e.target.value)}
+                    onBlur={() => {
+                        if (email.length) {
+                            onStartValidationOnBlur()
+                        }
+                    }}
                     autoComplete="off"
                 />
             </S.InputWrapper>
