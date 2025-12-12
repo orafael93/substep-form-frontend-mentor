@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.fieldset`
     display: flex;
     flex-direction: column;
-
-    margin-bottom: 24px;
+    border: none;
+    padding: 0;
+    margin: 0 0 24px 0;
 `
 
 export const StepTitle = styled.h2`
@@ -27,6 +28,11 @@ export const StepDescription = styled.p`
         font-size: 16px;
         font-weight: 400;
     `}
+`
+
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
 `
 
 export const Label = styled.label`

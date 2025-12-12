@@ -51,13 +51,13 @@ export const useValidateEmail = () => {
         if (emailToValidate.length < 1) {
             setError({
                 hasError: true,
-                message: 'O campo de e-mail é obrigatório.',
+                message: 'Email is required.',
             })
             return
         }
 
         if (!validatedEmail) {
-            setError({ hasError: true, message: 'O e-mail está inválido.' })
+            setError({ hasError: true, message: 'Email is invalid.' })
             return
         }
 

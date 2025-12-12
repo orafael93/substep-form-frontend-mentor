@@ -53,7 +53,7 @@ export const useValidateName = () => {
         if (nameToValidate.length < 3) {
             setError({
                 hasError: true,
-                message: 'Nome deve ter pelo menos 3 caracteres.',
+                message: 'Name must have at least 3 characters.',
             })
 
             return

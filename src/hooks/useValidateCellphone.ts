@@ -65,7 +65,7 @@ export const useValidateCellphone = () => {
         if (cleanTelefone.length < MAX_CELLPHONE_LENGTH) {
             setError({
                 hasError: true,
-                message: 'Telefone deve ter pelo menos 10 números.',
+                message: 'Cellphone must have at least 10 numbers.',
             })
             return
         }
