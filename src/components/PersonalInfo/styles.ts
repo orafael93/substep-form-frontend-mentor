@@ -126,7 +126,7 @@ export const Button = styled.button<ButtonType>`
 export const RequiredFieldText = styled.p`
     ${({ theme }) => css`
         color: ${theme.redErrors};
-        font-size: 14px;
+        font-size: 12px;
 
         @media (max-width: ${theme.breakpoints.tablet}px) {
             font-size: 10px;

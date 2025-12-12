@@ -59,12 +59,20 @@ export const PersonalInfo = () => {
             <S.StepDescription>
                 Please provide your name, email address, and phone number.
             </S.StepDescription>
-            <S.Form onSubmit={handleSubmit} noValidate aria-label="Personal information form">
+            <S.Form
+                onSubmit={handleSubmit}
+                noValidate
+                aria-label="Personal information form"
+            >
                 <S.InputWrapper>
                     <S.FieldLabelWrapper>
                         <S.Label htmlFor="name">Name</S.Label>
                         {nameError.hasError && (
-                            <S.RequiredFieldText id="name-error" role="alert" aria-live="polite">
+                            <S.RequiredFieldText
+                                id="name-error"
+                                role="alert"
+                                aria-live="polite"
+                            >
                                 {nameError.message}
                             </S.RequiredFieldText>
                         )}
@@ -85,8 +93,12 @@ export const PersonalInfo = () => {
                             }
                         }}
                         autoComplete="name"
-                        aria-invalid={nameError.hasError || nameState === 'error'}
-                        aria-describedby={nameError.hasError ? 'name-error' : undefined}
+                        aria-invalid={
+                            nameError.hasError || nameState === 'error'
+                        }
+                        aria-describedby={
+                            nameError.hasError ? 'name-error' : undefined
+                        }
                         aria-required="true"
                     />
                 </S.InputWrapper>
@@ -94,7 +106,11 @@ export const PersonalInfo = () => {
                     <S.FieldLabelWrapper>
                         <S.Label htmlFor="email">Email Address</S.Label>
                         {emailError.hasError && (
-                            <S.RequiredFieldText id="email-error" role="alert" aria-live="polite">
+                            <S.RequiredFieldText
+                                id="email-error"
+                                role="alert"
+                                aria-live="polite"
+                            >
                                 {emailError.message}
                             </S.RequiredFieldText>
                         )}
@@ -111,8 +127,12 @@ export const PersonalInfo = () => {
                             onStartValidateEmailOnBlur()
                         }}
                         autoComplete="email"
-                        aria-invalid={emailError.hasError || emailState === 'error'}
-                        aria-describedby={emailError.hasError ? 'email-error' : undefined}
+                        aria-invalid={
+                            emailError.hasError || emailState === 'error'
+                        }
+                        aria-describedby={
+                            emailError.hasError ? 'email-error' : undefined
+                        }
                         aria-required="true"
                     />
                 </S.InputWrapper>
@@ -120,7 +140,11 @@ export const PersonalInfo = () => {
                     <S.FieldLabelWrapper>
                         <S.Label htmlFor="phone">Phone number</S.Label>
                         {cellphoneError.hasError && (
-                            <S.RequiredFieldText id="phone-error" role="alert" aria-live="polite">
+                            <S.RequiredFieldText
+                                id="phone-error"
+                                role="alert"
+                                aria-live="polite"
+                            >
                                 {cellphoneError.message}
                             </S.RequiredFieldText>
                         )}
@@ -132,20 +156,26 @@ export const PersonalInfo = () => {
                         placeholder="(11) 11111-1111"
                         value={cellphone}
                         error={
-                            cellphoneError.hasError || cellphoneState === 'error'
+                            cellphoneError.hasError ||
+                            cellphoneState === 'error'
                         }
                         onChange={(e) => onUpdateCellphone(e.target.value)}
                         onBlur={() => {
                             onStartValidateCellphoneOnBlur()
                         }}
                         autoComplete="tel"
-                        aria-invalid={cellphoneError.hasError || cellphoneState === 'error'}
-                        aria-describedby={cellphoneError.hasError ? 'phone-error' : undefined}
+                        aria-invalid={
+                            cellphoneError.hasError ||
+                            cellphoneState === 'error'
+                        }
+                        aria-describedby={
+                            cellphoneError.hasError ? 'phone-error' : undefined
+                        }
                         aria-required="true"
                     />
                 </S.InputWrapper>
                 <S.NextStepWrapper>
-                    <S.Button 
+                    <S.Button
                         type="submit"
                         disabled={!canGoToNextStep}
                         aria-label="Proceed to next step"
