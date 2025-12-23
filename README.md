@@ -1,29 +1,33 @@
 # Multi Step Form
 
-Uma aplicação de formulário em múltiplas etapas, desenvolvida com foco total em acessibilidade, performance e validação customizada.
+A multi-step form application developed with a strong focus on accessibility, performance, and custom validation.
 
-## 🎬 Demonstração
+## 🎬 Demo
 
-![Demonstração do Projeto](./project-in-action.gif)
+![Project Demo](./project-in-action.gif)
 
-## 🎨 Sobre o Projeto
+## 🎨 About the Project
 
-**Multi Step Form** é uma aplicação web que guia o usuário através de um processo de cadastro em etapas. O projeto foi construído para oferecer uma experiência de usuário fluida e intuitiva, com validações em tempo real e feedback visual claro.
+**Multi Step Form** is a web application that guides the user through a registration process in steps. The project was built to offer a smooth and intuitive user experience, with real-time validation and clear visual feedback.
 
-O diferencial deste projeto é a **ausência de bibliotecas externas para gerenciamento de formulário**. Toda a lógica de estado, validação e navegação entre etapas foi implementada através de **Hooks Customizados**, garantindo controle total sobre o código e máxima performance.
+The main highlight of this project is that **I did not use external libraries for form management** (like Formik or React Hook Form). All the logic for state, validation, and navigation between steps was implemented using **Custom Hooks**.
 
-## ✨ Características
+This was an intentional architectural decision to:
+*   **Avoid "bundle bloat"**: Keeping the application light and fast.
+*   **Have full control**: Managing the logic exactly as needed without dependencies.
 
--   **Acessibilidade 100%**: A aplicação foi construída seguindo rigorosamente as diretrizes WCAG.
-    -   Uso correto de `aria-labels`, `aria-roles` e atributos semânticos.
-    -   Navegação completa via teclado.
--   **Validação Customizada**: Hooks proprietários que validam cada campo de input, garantindo dados corretos sem depender de libs pesadas.
--   **Design Responsivo**: Layout que se adapta perfeitamente a desktops, tablets e dispositivos móveis.
--   **Performance de Ponta**: Otimização focada para atingir pontuação máxima no Lighthouse.
+## ✨ Features
 
-## 📊 Performance e Acessibilidade (Lighthouse)
+-   **100% Accessibility**: The application follows WCAG guidelines strictly.
+    -   Correct use of `aria-labels`, `aria-roles`, and semantic attributes.
+    -   Full keyboard navigation.
+-   **Custom Validation**: I created my own hooks to validate each input field. This ensures correct data without using heavy libraries.
+-   **Responsive Design**: The layout adapts perfectly to desktops, tablets, and mobile devices.
+-   **Top Performance**: Optimized to reach the maximum score on Lighthouse.
 
-O projeto atingiu pontuações excelentes no Google Lighthouse, comprovando o compromisso com a performance e a acessibilidade.
+## 📊 Performance and SEO (Lighthouse)
+
+The project achieved excellent scores on Google Lighthouse (100/100). This proves the commitment to performance and SEO quality.
 
 ### Desktop
 
@@ -33,70 +37,62 @@ O projeto atingiu pontuações excelentes no Google Lighthouse, comprovando o co
 
 ![Lighthouse Mobile](./src/assets/lighthouse-result-mobile.png)
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
-Este projeto foi desenvolvido utilizando tecnologias modernas do ecossistema React, mantendo as dependências externas ao mínimo necessário:
+This project was developed using modern React technologies, keeping external dependencies to a minimum:
 
 -   **React**
 -   **TypeScript**
 -   **Styled Components**
 -   **Vite**
 
-> **Nota:** Nenhuma biblioteca de gerenciamento de formulário (como Formik ou React Hook Form) ou biblioteca de componentes de UI (como Material UI ou Bootstrap) foi utilizada. Tudo foi construído do zero utilizando hooks específicos para cada validação.
+> **Note:** No form management libraries or UI component libraries (like Material UI or Bootstrap) were used. Everything was built from scratch using specific hooks for each validation.
 
-## 🚀 Como Rodar o Projeto
+## 🚀 How to Run the Project
 
-### Pré-requisitos
+### Prerequisites
 
--   Node.js (versão 14 ou superior)
--   npm ou yarn
+-   Node.js (version 14 or higher)
+-   npm or yarn
 
-### Instalação
+### Installation
 
-1. Clone o repositório:
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/orafael93/substep-form.git
 cd substep-form-frontend-mentor
 ```
 
-2. Instale as dependências:
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Desenvolvimento
+### Development
 
-Para rodar o projeto em modo de desenvolvimento:
+To run the project in development mode:
 
 ```bash
 npm run dev
 ```
 
-O projeto será aberto automaticamente no navegador (geralmente em `http://localhost:5173`).
+The project will open automatically in your browser (usually at `http://localhost:5173`).
 
-### Build para Produção
+### Build for Production
 
-Para gerar o bundle otimizado para produção:
+To generate the optimized bundle for production:
 
 ```bash
 npm run build
 ```
 
-Os arquivos otimizados serão gerados na pasta `dist/`.
+The optimized files will be generated in the `dist/` folder.
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Rafael**
 
 -   Email: orafaeldev@gmail.com
 -   GitHub: [@orafael93](https://github.com/orafael93)
-
-## 📄 Licença
-
-Este projeto é desenvolvido para fins educacionais e de portfólio.
-
-## 🚀 Agradecimentos
-
--   [Frontend Mentor](https://www.frontendmentor.io/) pelo desafio de design.
